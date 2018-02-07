@@ -1,3 +1,57 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'imports/mixins';
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:visited {
+	color: black;
+}
+.countdown-wrapper {
+	@include flex;
+	@include justify-content(center);
+	@include align-items(center);
+	height: 100%;
+}
+
+p {
+	display: inline;
+	line-height: 34px;
+}
+.ct-text {
+	padding: 20px;
+	text-align: left;
+	width: 330px;
+}
+.logo-gif {
+	max-height: 400px;
+}
+
+.brown-link {
+	border-bottom: 3px solid #B66338;
+}
+.black-link {
+	border-bottom: 3px solid #0A343A;
+}
+.blue-link {
+	border-bottom: 3px solid #9EBCBD;
+}
+
+@media screen and (max-width: 770px) {
+	.countdown-wrapper {
+		display: block;
+		text-align: center;
+	}
+	.ct-box {
+		width: 60%;
+		display: inline-block;
+		text-align: center;
+	}
+	.logo-gif {
+		width: 100%;
+	}
+}

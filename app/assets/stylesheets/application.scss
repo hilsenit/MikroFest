@@ -1,0 +1,27 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+@import 'imports/fonts'; // Lato
+@import 'imports/mixins'; 
+
+
+body, html {
+	height: 100%;
+}
+h1, h2, h3, h4, h5, h6, p {
+	font-family: 'Lato';
+}
+
+h1, h2 {
+	text-transform: uppercase;
+}
+
+.text-center {
+	text-align: center;
+}
+.text-uppercase {
+	text-transform: uppercase;
+}
+
