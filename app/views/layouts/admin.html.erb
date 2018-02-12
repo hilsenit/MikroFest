@@ -9,18 +9,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
-
   <body>
-
+		<%= link_to "&#8592; Gå til forside".html_safe, root_path(), class: "text-center d-block" %>
 		<%= render partial: 'shared/admin_header' %>
-
 		<div class="container">
-			<h1 class="text-center">Admin</h1>
-			<p class="notice"><%= notice %></p>
-			<p class="alert"><%= alert %></p>
+			<%= render partial: 'shared/messages' %>
+
 			<%= yield %>
+
 		</div>
 
-
   </body>
+
 </html>

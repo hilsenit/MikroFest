@@ -1,3 +1,4 @@
+
 .text-center {
 	text-align: center;
 }
@@ -10,4 +11,15 @@
 
 .f-small {
 	font-size: 1.8rem;
+}
+
+.d-block {
+	display: block;
+}
+
+.notice {
+	background-color: lighten(green, 30%);
+}
+.alert {
+	background-color: lighten(red, 10%);
 }

@@ -1,0 +1,4 @@
+<%= link_to one_publisher_path(each.friendly_id), class: "three columns publisher-each" do %>
+	<h5 class="text-center"> <%= each.name %> </h5>
+	<%= tag.p truncate(each.description, length: 50) unless each.description.nil? %> 
+<% end %>

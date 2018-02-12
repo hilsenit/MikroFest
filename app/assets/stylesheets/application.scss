@@ -4,8 +4,12 @@
  *= require_self
  */
 
+@import 'imports/colors';
 @import 'imports/fonts'; // Lato
 @import 'imports/mixins'; 
 @import 'imports/default';
+@import 'imports/navbar';
+
 @import './pages.scss';
+
 

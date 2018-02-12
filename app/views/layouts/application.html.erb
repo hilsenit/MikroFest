@@ -10,14 +10,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
-
   <body>
 
 		<%= render partial: 'shared/header' %>
 
 		<div class="container">
-			<p class="notice"><%= notice %></p>
-			<p class="alert"><%= alert %></p>
+		<%= render partial: 'shared/menu' %>
+
+			<%= render partial: 'shared/messages' %>
+
 			<%= yield %>
 
 		<%= render partial: 'shared/footer' %>

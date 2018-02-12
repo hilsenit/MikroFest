@@ -1,0 +1,17 @@
+<%= link_to "&#8592; tilbage til #{@publisher.name}s titler".html_safe, publisher_titles_path(@publisher.id) %>
+<%= form_for [@publisher, @title] do |f| %>
+  <div class="row">
+    <div class="six columns">
+			<%= f.label :title, "Titel" %>
+			<%= f.text_field :title, class: "u-full-width" %>
+    </div>
+    <div class="six columns">
+    </div>
+  </div>
+	<%= f.label :description, "Beskrivelse af titel" %>
+	<%= f.text_area :description, class: "u-full-width" %>
+	<%= f.submit "Gem titel", class: "button-primary" %>
+<% end %>
+<!-- Always wrap checkbox and radio inputs in a label and use a <span class="label-body"> inside of it -->
+
+<!-- Note: The class .u-full-width is just a utility class shorthand for width: 100% -->

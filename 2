@@ -1,0 +1,9 @@
+Rails.application.routes.draw do
+  devise_for :admins
+  resources :publishers do 
+		resources :titles
+	end
+	get '/forside' => 'pages#frontpage'
+	get '/admin' => 'admin#index'
+	root 'pages#countdown'
+end
