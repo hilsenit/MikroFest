@@ -37,5 +37,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
-gem 'stripe' # Not generated views yet	
+gem 'stripe' # I've not generated views yet	
 gem 'friendly_id', '~> 5.1.0'
+gem 'gibbon'
+gem 'stripe'

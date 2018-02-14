@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   resources :publishers do
 		resources :titles
 	end
+
+	# Stripe
+	resources :charges
+
+	# Sider (pages)
 	get '/forlagene' => 'pages#publishers', as: :all_publishers
 	get '/forlaget/:id' => 'pages#publisher', as: :one_publisher
 	get '/alle-titler' => 'pages#titles', as: :all_titles
