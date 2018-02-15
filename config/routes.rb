@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
 	# Stripe
 	resources :charges
+	get 'tak-for-dit-koeb' => 'charges#thanks', as: :thanks
 
 	# Sider (pages)
 	get '/forlagene' => 'pages#publishers', as: :all_publishers
