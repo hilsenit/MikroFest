@@ -34,3 +34,12 @@
 		</div>
 	</div>
 </div>
+
+  <div class="nyhedsbrev">
+    <%= form_for :mailchimp, url: add_to_mailchimp_path(), remote: true do |f| %>
+      <%= f.text_field :email, placeholder: "Indtast email" %>
+      <%= f.text_field :first_name, placeholder: "Indtast fornavn" %>
+      <%= f.text_field :last_name, placeholder: "Indtast efternavn" %>
+      <%= f.submit "Tilmeld nyhedsbrev" %>
+    <% end %>
+  </div>

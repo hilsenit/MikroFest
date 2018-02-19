@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
+
   devise_for :admins
+
   resources :publishers do
 		resources :titles
 	end
+
+  # MailChimp
+  post 'tilfoej-bruger-til-mailliste' => 'mailchimp#add_mail_to_list', as: :add_to_mailchimp
 
 	# Stripe
 	resources :charges
