@@ -124,7 +124,9 @@ p {
 	border-bottom: 3px solid #9EBCBD;
 }
 
-
+input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="text"]:focus, input[type="tel"]:focus, input[type="url"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
+  border: 1px solid #9EBCBD!important;
+}
 @media screen and (max-width: 770px) {
 
 	.countdown-wrapper {
