@@ -1,8 +1,15 @@
+/*
+ *= require skeleton/normalize
+ *= require skeleton/skeleton
+*/
+
 @import 'imports/fonts'; // Lato
 @import 'imports/mixins';
 
 body, html {
 	height: 100%;
+  width: 100%;
+  overflow-x: hidden;
 }
 h1, h2, h3, h4, h5, h6, p {
 	font-family: 'Lato';
@@ -12,12 +19,25 @@ h1, h2 {
 	text-transform: uppercase;
 }
 
+.image-top {
+  @include flex;
+  @include justify-content(center);
+  height: 50vh;
+  width: 100%;
+  margin-top: 20vh; 
+}
+
+.top-of-tag {
+  height: 30vh;
+  text-align: center;
+}
 .text-center {
 	text-align: center;
 }
 .text-uppercase {
 	text-transform: uppercase;
 }
+
 
 a {
 	text-decoration: none;
@@ -30,22 +50,67 @@ a:visited {
 .countdown-wrapper {
 	@include flex;
 	@include justify-content(center);
-	@include align-items(center);
-	height: 100%;
+	@include align-items(flex-start);
+  @include flex-wrap(wrap);
+  margin: 0 auto;
+  .top-wrapper {
+    width: 100%;
+    padding: 0 10%;
+  }
+  .bottom-wrapper {
+    @include align-items(flex-start);
+    @include flex;
+    @include flex-wrap(wrap);
+    width: 800px;
+    .ct-text-bottom {
+      width: 65%;
+      & > div {
+        margin-bottom: 15px;
+      }
+    }
+    .nyhedsbrev {
+      width: 35%;
+      form {
+        @include justify-content(space-around);
+        @include flex;
+        @include flex-wrap(wrap);
+        input {
+          font-family: Lato;
+          text-transform: inherit
+        }
+        input:not([type=submit]) {
+           box-sizing: border-box;
+           width: 100%;
+        }
+        [type=submit] {
+          width: 100%;
+        }
+      }
+    }
+    }
+  }
+
+.error-field-wrapper {
+  width: 100%;
+  #errField {
+  } 
+}
+
+.d-block {
+  display: block!important;
 }
 
 p {
 	display: inline;
-	line-height: 34px;
+	line-height: 28px;
 }
 
 .ct-text {
-	padding: 20px;
-	text-align: left;
-	width: 330px;
 }
 
 .logo-gif {
+  width: auto;
+  height: 100%;
 	max-height: 400px;
 }
 
@@ -59,17 +124,40 @@ p {
 	border-bottom: 3px solid #9EBCBD;
 }
 
+
 @media screen and (max-width: 770px) {
+
 	.countdown-wrapper {
 		display: block;
 		text-align: center;
+    padding: 20px;
 	}
+  .ct-text-bottom {
+    margin-bottom: 140px;
+  }
 	.ct-box {
-		width: 60%;
 		display: inline-block;
 		text-align: center;
 	}
-	.logo-gif {
-		width: 100%;
-	}
+
+  .countdown-wrapper {
+    .top-wrapper {
+      padding: 0;
+      width: 100%;
+    }
+    .bottom-wrapper {
+      @include flex-wrap(wrap);
+      width: 100%;
+      .ct-text-bottom {
+        width: 100%;
+        & > div {
+        }
+      }
+      .nyhedsbrev {
+        width: 100%;
+        margin-bottom: 40px;
+      }
+    }
+  }
 }
+

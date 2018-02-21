@@ -39,5 +39,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'stripe' # I've not generated views yet	
 gem 'friendly_id', '~> 5.1.0'
-gem 'gibbon'
+gem 'gibbon', github: "amro/gibbon"
 gem 'stripe'

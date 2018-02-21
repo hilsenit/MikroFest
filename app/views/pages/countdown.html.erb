@@ -1,45 +1,64 @@
 <div class="countdown-wrapper">
-	<div class="ct-box">
-		<%= image_tag 'giphy.gif', class: "logo-gif" %>
-	</div>
 
-	<div class="ct-box ct-text">
-		<div>
-			<p class="brown-border"><b>Mikrofest</b></p> 
-		</div>
-		
-		<div>
-			<p class="brown-border">Store bøger fra små forlag</p> 
-		</div>
-		<div>
-			<p class="black-border">Åbner i løbet af 2018 </p>
-		</div>
-		
-		<div>
-			<p class="blue-border">Mikrofest-antologien udkommer d. 3. marts – læs mere 
-				<a class="brown-link" href="https://www.facebook.com/events/166199564022757" target="_blank">her</a>
-			</p>
-		</div>
-		
-		<div>
-			<p class="brown-border">Følg os på <a class="black-link" href="https://www.facebook.com/mikrofest.dk/" target="_blank">Facebook</a></p>
-		</div>
-		
-		<div>
-			<p class="black-border">Sig <a class="blue-link" href="mailto:hej@mikrofest.dk?Subject=Hej%20Mikrofest" target="_top">hej@mikrofest.dk</a></p>
-		</div>
-		
-		<div>
-			<p class="blue-border"> Mikrofest er støttet af Statens Kunstfond og Fonden Roskilde Festival.  </p>
-		</div>
-	</div>
-</div>
+  <div class="ct-box image-top">
+    <%= image_tag 'giphy.gif', class: "logo-gif" %>
+  </div>
 
-  <div class="nyhedsbrev">
-    <%= form_for :mailchimp, url: add_to_mailchimp_path(), remote: true do |f| %>
-      <%= f.text_field :email, placeholder: "Indtast email" %>
+  <div class="top-wrapper">
+    <div class="ct-box top-of-tag">
+      <br>
+      <div>
+        <p class="brown-border"><b>Mikrofest</b></p> 
+      </div>
+    
+      <div>
+        <p class="brown-border">Store bøger fra små forlag</p> 
+      </div>
+      <br>
+      &#8595;
+      <br>
+    </div>
+  </div>
+
+  <div class="bottom-wrapper">
+       <div class="error-field-wrapper">
+         <p id="errField" class="text-center d-block"></p>
+       </div>
+    <div class="ct-box ct-text-bottom">
+      <div>
+        <p class="black-border">Åbner i løbet af 2018 </p>
+      </div>
+
+      <div>
+        <p class="blue-border">Mikrofest-antologien udkommer d. 3. marts – læs mere 
+          <a class="brown-link" href="https://www.facebook.com/events/166199564022757" target="_blank">her</a>
+        </p>
+      </div>
+
+      <div>
+        <p class="brown-border">Følg os på <a class="black-link" href="https://www.facebook.com/mikrofest.dk/" target="_blank">Facebook</a></p>
+      </div>
+
+      <div>
+        <p class="black-border">Sig 
+          <a class="blue-link" href="mailto:hej@mikrofest.dk?Subject=Hej%20Mikrofest" target="_top">hej@mikrofest.dk</a>
+        </p>
+      </div>
+
+      <div>
+        <p class="blue-border"> Mikrofest er støttet af Statens Kunstfond og Fonden Roskilde Festival.  </p>
+      </div>
+    </div>
+    <div class="nyhedsbrev">
+      <%= form_for :mailchimp, url: add_to_mailchimp_path(), remote: true do |f| %>
+      <%= f.email_field :email, placeholder: "Indtast email" %>
       <%= f.text_field :first_name, placeholder: "Indtast fornavn" %>
       <%= f.text_field :last_name, placeholder: "Indtast efternavn" %>
-      <%= f.submit "Tilmeld nyhedsbrev" %>
-    <% end %>
+      <%= f.submit "Tilmeld dig vores nyhedsbrev" %>
+      <% end %>
+    </div>
+
   </div>
+
+</div>
+
