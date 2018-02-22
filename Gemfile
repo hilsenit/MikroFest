@@ -18,8 +18,9 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # gem "database_cleaner"
-  # gem "rspec-rails"
+  gem "database_cleaner"
+  gem "rspec-rails"
+  gem "factory_bot"
 end
 
 group :development do
@@ -27,6 +28,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'guard-rspec', require: false
 end
 
 group :test do
@@ -35,9 +37,11 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
 gem 'devise'
 gem 'stripe' # I've not generated views yet	
 gem 'friendly_id', '~> 5.1.0'
 gem 'gibbon', github: "amro/gibbon"
 gem 'stripe'
+
+# Added at 2018-02-21 19:14:52 +0100 by bruger:
+gem "rails-controller-testing", "~> 1.0"
