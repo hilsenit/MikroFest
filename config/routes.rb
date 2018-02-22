@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :news
+
   devise_for :admins
 
   resources :publishers do

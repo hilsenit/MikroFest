@@ -11,6 +11,9 @@ class MailchimpController < ApplicationController
     elsif params[:mailchimp][:last_name].empty?
       @error = "Indtast venligst et efternavn og prøv igen."
       render 'shared/errors/mailchimp_error.js'
+    elsif params[:mailchimp][:email].empty?
+      @error = "Indtast venligst en email og prøv igen."
+      render 'shared/errors/mailchimp_error.js'
     else
       json_params = JSON.parse(params[:mailchimp].to_json)
       AddToMailingListJob.perform_later(json_params)
