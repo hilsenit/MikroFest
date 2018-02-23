@@ -1,6 +1,6 @@
 class NewsController < ApplicationController
-  def new
 
+  def new
   end
 
 end
