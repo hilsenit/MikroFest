@@ -1,10 +1,10 @@
 require 'rails_helper'
-require 'factories/admin'
+require 'factories/users'
 require 'factories/publisher'
 
 RSpec.describe PagesController, type: :controller do
   describe "#countdown" do
-    let(:admin) { create(:admin) }
+    let(:user) { create(:user) }
 
     context "when no one is logged in" do
       it "should not redirect" do
@@ -15,7 +15,7 @@ RSpec.describe PagesController, type: :controller do
 
     context "when admin is logged in" do
       it "should redirect" do
-        sign_in admin
+        sign_in user
         get :countdown
         expect(response.status).to eq(302)
       end

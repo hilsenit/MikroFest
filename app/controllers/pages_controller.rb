@@ -1,11 +1,11 @@
 class PagesController < ApplicationController
-	before_action :authenticate_admin!, except: [:countdown]
+	before_action :authenticate_user!, except: [:countdown]
 
 	def frontpage
 	end
 
   def countdown
-		unless admin_signed_in?
+		unless user_signed_in?
 			render layout: 'countdown'
 		else
 			redirect_to forside_path()

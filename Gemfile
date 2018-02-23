@@ -27,6 +27,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'spring'
   gem 'guard-rspec', require: false
+  gem 'haml-rails'
 end
 
 group :test do
@@ -44,3 +45,5 @@ gem 'gibbon', github: "amro/gibbon"
 gem 'stripe'
 
 gem "rails-controller-testing", "~> 1.0"
+gem 'haml'
+gem 'simple_form'

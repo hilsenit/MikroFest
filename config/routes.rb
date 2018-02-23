@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :news
   resources :users
 
 
-  devise_for :admins
 
   resources :publishers do
 		resources :titles

@@ -3,12 +3,12 @@ require 'factories/users.rb'
 
 RSpec.describe UsersController, type: :controller do
   describe "POST #create" do
-    it "create new user" do
+    it "new user" do
       post :create, params: {user: attributes_for(:user)}
       expect(User.count).to eq(1)
     end
 
-    context "when invalid" do
+    context "when one param is missing" do
       it "should not create new user" do
         invalid_user_params = attributes_for(:user, full_name: "")
         post :create, params: {user: invalid_user_params}
@@ -24,6 +24,4 @@ RSpec.describe UsersController, type: :controller do
       expect(response).to render_template(:new)
     end
   end
-
-
 end
