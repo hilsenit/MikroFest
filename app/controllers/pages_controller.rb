@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-	before_action :authenticate_user!, except: [:countdown]
+	# before_action :authenticate_user!, except: [:countdown]
 
 	def frontpage
 	end
@@ -10,6 +10,10 @@ class PagesController < ApplicationController
 		else
 			redirect_to forside_path()
 		end
+  end
+
+  def pages
+
   end
 
 	def about

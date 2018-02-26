@@ -1,5 +1,20 @@
+@includde './mixins';
+/* WIERD COLUMN ERROR */
+
+.row {
+    @include flex;
+    @include flex-wrap(wrap);
+}
+.three.columns:nth-child(4n + 1) {
+    margin-left: 0;
+}
+a {
+    color: black!important;
+    text-decoration: underline;
+}
 .content-wrapper {
   margin-top: 20px;
+  overflow: hidden;
 }
 
 .text-center {

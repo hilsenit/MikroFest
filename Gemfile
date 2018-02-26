@@ -21,6 +21,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "factory_bot"
   gem "capybara"
+  gem 'faker'
 end
 
 group :development do
@@ -33,7 +34,6 @@ end
 group :test do
   gem "selenium-webdriver"
   gem 'shoulda-matchers', '~> 3.0', require: false
-  gem 'faker'
   gem "database_cleaner"
 end
 
@@ -42,8 +42,9 @@ gem 'devise'
 gem 'stripe' # I've not generated views yet	
 gem 'friendly_id', '~> 5.1.0'
 gem 'gibbon', github: "amro/gibbon"
-gem 'stripe'
 
 gem "rails-controller-testing", "~> 1.0"
 gem 'haml'
 gem 'simple_form'
+gem 'carrierwave', '~> 1.0'
+

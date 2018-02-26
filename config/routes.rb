@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations', passwords: 'users/passwords' }
   resources :news
   resources :users
-
-
-
   resources :publishers do
 		resources :titles
 	end
@@ -18,6 +15,7 @@ Rails.application.routes.draw do
 	get 'tak-for-dit-koeb' => 'charges#thanks', as: :thanks
 
 	# Sider (pages)
+  get '/kurv' => 'pages#basket', as: :basket
 	get '/forlagene' => 'pages#publishers', as: :all_publishers
 	get '/forlaget/:id' => 'pages#publisher', as: :one_publisher
 	get '/alle-titler' => 'pages#titles', as: :all_titles

@@ -1,3 +1,8 @@
+<% unless @publisher.image.nil?  %>
+  <div class="pub-cover-wrapper">
+    <%= image_tag @publisher.image.url, class: "pub-cover" %> 
+  </div>
+<% end %>
 <h3 class="text-center"><%= @publisher.name %></h3>
 <%= tag.p "Beskrivelse af forlag: " + @publisher.description unless @publisher.description.nil? %>
 
