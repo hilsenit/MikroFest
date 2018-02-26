@@ -11,8 +11,15 @@
     <%= f.text_area :description, class: "u-full-width" %>
   </div>
   <div class="twelve columns">
-    <%= f.label :image, "Tilføj billede" %>
-    <%= f.file_field :image %>
+    <% if @publisher.image.nil? %>
+      <%= f.label :image, "Tilføj billede" %>
+      <%= f.file_field :image %>
+    <% else %>
+      <%= image_tag @publisher.image.thumb.url %>
+      <%= f.label :image, "Tilføj et andet billede" %>
+      <%= f.file_field :image %>
+    <% end %>
+
   </div>
   <div class="twelve columns">
     <%= f.submit "Gem forlag", class: "button-primary" %>

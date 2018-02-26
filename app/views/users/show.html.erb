@@ -1,1 +1,6 @@
 <h2 class="text-center">Din profil</h2>
+<ul>
+  <%= tag.li "Navn: " + @user.full_name %>
+  <%= tag.li "Email: " + @user.email %>
+  <%= tag.li "Adresse: " + @user.address %>
+</ul>

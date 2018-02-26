@@ -1,4 +1,5 @@
 class Title < ApplicationRecord
+  mount_uploader :image, TitleImageUploader
 	extend FriendlyId
 	friendly_id :title, use: :slugged
 

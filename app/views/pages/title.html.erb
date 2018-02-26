@@ -1,3 +1,14 @@
 <%= link_to (tag.p "&#8592; Forlaget #{@publisher.name}".html_safe), one_publisher_path(@publisher.friendly_id) %>
-<h3>Titel: <%= @title.title %></h3>
-<%= tag.p "Beskrivelse: #{@title.description}" unless @title.description.nil? %>
+<div class="row">
+  <div class="twelve columns">
+    <h3 class="text-center">Titel: <%= @title.title %></h3>
+  </div>
+</div>
+<div class="row">
+  <div class="eight columns">
+    <%= tag.p "Beskrivelse: #{@title.description}" unless @title.description.nil? %>
+  </div>
+  <div class="four columns">
+    <%= image_tag @title.image.thumb.url unless @title.image.nil? %>
+  </div>
+</div>

@@ -10,6 +10,18 @@
   </div>
 	<%= f.label :description, "Beskrivelse af titel" %>
 	<%= f.text_area :description, class: "u-full-width" %>
+  <div class="row">
+    <div class="six columns">
+        <% if @title.image.nil? %>
+          <%= f.label "Tilføj nyt billede" %>
+          <%= f.file_field :image %>
+        <% else %>
+          <%= image_tag @title.image.thumb.url %>
+          <%= f.label "Tilføj et andet billede" %>
+          <%= f.file_field :image %>
+        <% end %>
+    </div>
+  </div>
 	<%= f.submit "Gem titel", class: "button-primary" %>
 <% end %>
 <!-- Always wrap checkbox and radio inputs in a label and use a <span class="label-body"> inside of it -->
