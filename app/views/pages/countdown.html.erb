@@ -21,34 +21,29 @@
   </div>
 
   <div class="bottom-wrapper">
+    <div class="nyhedsbrev">
+      <%= link_to "https://arkivfordetaljer.myshopify.com/collections/all/products/mikrofest", target: "_blank" do %>
+        <%= image_tag "mikrofest.jpg", class: "book-front" %>
+      <% end %>
+    </div>
+    <div class="ct-box ct-text-bottom">
+      <p>
+        <a class="blue-link" href="https://arkivfordetaljer.myshopify.com/collections/all/products/mikrofest" target="_blank">Køb Mikrofest!</a> <br>
+        Som en snigpremiere udgiver vi sammen med Arkiv for Detaljer antologien Mikrofest – 24 mikro/manifester fra uafhængige danske mikroforlag. 136 siders ustyrligt manifeste digte, tegninger, alfabeter, kærlighedssbreve, programskrifter osv. 129,95 kr.<br><br>
+      Åbner i løbet af 2018 <br>
+      Mikrofest-antologien udkommer d. 3. marts – læs mere 
+      <a class="brown-link" href="https://www.facebook.com/events/166199564022757" target="_blank">her</a><br>
+      Følg os på <a class="black-link" href="https://www.facebook.com/mikrofest.dk/" target="_blank">Facebook</a><br>
+      Sig <a class="blue-link" href="mailto:hej@mikrofest.dk?Subject=Hej%20Mikrofest" target="_top">hej@mikrofest.dk</a><br>
+      Mikrofest er støttet af Statens Kunstfond og Fonden Roskilde Festival.
+      </p>
+    </div>
+  </div>
+
+  <div class="nyhedsbrev-wrapper">
        <div class="error-field-wrapper">
          <p id="errField" class="text-center d-block"></p>
        </div>
-    <div class="ct-box ct-text-bottom">
-      <div>
-        <p class="black-border">Åbner i løbet af 2018 </p>
-      </div>
-
-      <div>
-        <p class="blue-border">Mikrofest-antologien udkommer d. 3. marts – læs mere 
-          <a class="brown-link" href="https://www.facebook.com/events/166199564022757" target="_blank">her</a>
-        </p>
-      </div>
-
-      <div>
-        <p class="brown-border">Følg os på <a class="black-link" href="https://www.facebook.com/mikrofest.dk/" target="_blank">Facebook</a></p>
-      </div>
-
-      <div>
-        <p class="black-border">Sig 
-          <a class="blue-link" href="mailto:hej@mikrofest.dk?Subject=Hej%20Mikrofest" target="_top">hej@mikrofest.dk</a>
-        </p>
-      </div>
-
-      <div>
-        <p class="blue-border"> Mikrofest er støttet af Statens Kunstfond og Fonden Roskilde Festival.  </p>
-      </div>
-    </div>
     <div class="nyhedsbrev">
       <%= form_for :mailchimp, url: add_to_mailchimp_path(), remote: true do |f| %>
       <%= f.email_field :email, placeholder: "Indtast email" %>
@@ -57,7 +52,6 @@
       <%= f.submit "Tilmeld dig vores nyhedsbrev" %>
       <% end %>
     </div>
-
   </div>
 
 </div>

@@ -90,6 +90,10 @@ a:visited {
     }
     }
   }
+.nyhedsbrev-wrapper {
+  padding-top: 40px;
+  margin-bottom: 100px;
+}
 
 .error-field-wrapper {
   width: 100%;
@@ -99,11 +103,6 @@ a:visited {
 
 .d-block {
   display: block!important;
-}
-
-p {
-	display: inline;
-	line-height: 28px;
 }
 
 .ct-text {
@@ -128,6 +127,17 @@ p {
 input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="text"]:focus, input[type="tel"]:focus, input[type="url"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
   border: 1px solid #9EBCBD!important;
 }
+@media screen and (max-width: 861px) {
+
+  .nyhedsbrev {
+    width: 762px;
+    margin: 0 auto;
+  }
+  input {
+    width: 100%;
+  }
+
+}  
 @media screen and (max-width: 770px) {
 
 	.countdown-wrapper {
@@ -136,7 +146,7 @@ input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focu
     padding: 20px;
 	}
   .ct-text-bottom {
-    margin-bottom: 140px;
+    margin-bottom: 50px;
   }
 	.ct-box {
 		display: inline-block;
@@ -156,11 +166,11 @@ input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focu
         & > div {
         }
       }
-      .nyhedsbrev {
-        width: 100%;
-        margin-bottom: 40px;
-      }
     }
+  }
+  .nyhedsbrev {
+    width: 100%!important;
+    margin-bottom: 40px;
   }
 }
 
