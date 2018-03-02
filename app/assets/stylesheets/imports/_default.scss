@@ -1,63 +1,6 @@
 @import './colors';
 @import './mixins';
-/* You can also use a <br class="clear" /> to clear columns */
-.clear {
-  clear: both;
-  display: block;
-  overflow: hidden;
-  visibility: hidden;
-  width: 0;
-  height: 0;
-}
-.button-small {
-  font-size: 0.6rem;
-  line-height: 28px;
-  height: 28px;
-  padding: 0 20px;
-}
 
-.button-alert {
-  background-color: $error_msg_background;
-  color: $error_msg_color;
-}
-
-.row {
-    @include flex;
-    @include flex-wrap(wrap);
-}
-.three.columns:nth-child(4n + 1) {
-    margin-left: 0;
-}
-
-a {
-    color: black!important;
-    text-decoration: underline;
-}
 .content-wrapper {
   margin-top: 20px;
-}
-
-.text-center {
-	text-align: center;
-}
-.text-right {
-	text-align: right;
-}
-.text-uppercase {
-	text-transform: uppercase;
-}
-
-.f-small {
-	font-size: 1.8rem;
-}
-
-.d-block {
-	display: block;
-}
-
-.notice {
-	background-color: lighten(green, 30%);
-}
-.alert {
-	background-color: lighten(red, 10%);
 }
