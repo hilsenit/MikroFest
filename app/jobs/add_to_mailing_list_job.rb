@@ -9,7 +9,7 @@ class AddToMailingListJob < ApplicationJob
 
     gibbon.lists(list_id).members.create(
       body: {
-        email_address: json_data["email"], status: "subscribed", merge_fields: {FNAME: json_data["first_name"], LNAME: json_data["last_name"]}
+        email_address: json_data["email"], status: "pending", merge_fields: {FNAME: json_data["first_name"], LNAME: json_data["last_name"]}
       }
     )
   end
