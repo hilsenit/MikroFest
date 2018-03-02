@@ -17,6 +17,15 @@
         = image_tag @title.image.thumb.url
         = f.label "Tilføj et andet billede"
         = f.file_field :image
-  = f.submit "Gem titel", class: "button-primary"
+
+  %h5 Anmeldelser:
+  .row.reviews
+  = f.fields_for :reviews do |r|
+    = render 'review_fields', f: r
+  .links.twelve.columns
+    = link_to_add_association 'Tilføj anmeldelse', f, :reviews, class: "button button-secondary"
+  .clear
+  .row
+    = f.submit "Gem titel", class: "button-primary"
 / Always wrap checkbox and radio inputs in a label and use a <span class="label-body"> inside of it
 / Note: The class .u-full-width is just a utility class shorthand for width: 100%

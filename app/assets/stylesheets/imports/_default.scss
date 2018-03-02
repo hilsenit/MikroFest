@@ -1,5 +1,25 @@
-@includde './mixins';
-/* WIERD COLUMN ERROR */
+@import './colors';
+@import './mixins';
+/* You can also use a <br class="clear" /> to clear columns */
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+.button-small {
+  font-size: 0.6rem;
+  line-height: 28px;
+  height: 28px;
+  padding: 0 20px;
+}
+
+.button-alert {
+  background-color: $error_msg_background;
+  color: $error_msg_color;
+}
 
 .row {
     @include flex;

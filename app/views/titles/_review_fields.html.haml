@@ -1,0 +1,9 @@
+.nested-fields.three.columns.review
+    = link_to_remove_association "&#10005;".html_safe, f
+    = f.label "Skrevet af:"
+    = f.text_field :written_by
+    = f.label "Anmeldelse"
+    = f.text_area :text
+    = f.label "Link til hele anmeldelsen"
+    = f.text_field :url
+

@@ -45,8 +45,9 @@ gem 'gibbon', github: "amro/gibbon"
 
 gem "rails-controller-testing", "~> 1.0"
 gem 'haml'
-gem 'simple_form'
 gem 'carrierwave', '~> 1.0'
 gem 'rmagick'
 gem 'mini_magick'
+gem 'jquery-rails'
+gem 'cocoon'
 
