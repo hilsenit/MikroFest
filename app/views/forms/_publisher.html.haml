@@ -1,0 +1,22 @@
+= form_for @publisher do |f|
+  = render partial: 'forms/shared/error_messages', locals: {record: @publisher}
+  .row
+    .six.columns
+      = f.label :name, "Navn på forlag"
+      = f.text_field :name, class: "u-full-width"
+    .six.columns
+    .twelve.columns
+      = f.label :description, "Beskrivelse af forlag"
+      = f.text_area :description, class: "u-full-width"
+    .twelve.columns
+      - if @publisher.image.file.nil?
+        = f.label :image, "Tilføj billede"
+        = f.file_field :image
+      - else
+        = image_tag @publisher.image.thumb.url
+        = f.label :image, "Tilføj et andet billede"
+        = f.file_field :image
+    .twelve.columns
+      = f.submit "Gem forlag", class: "button-primary"
+/ Always wrap checkbox and radio inputs in a label and use a <span class="label-body"> inside of it
+/ Note: The class .u-full-width is just a utility class shorthand for width: 100%

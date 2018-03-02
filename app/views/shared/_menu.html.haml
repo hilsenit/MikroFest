@@ -1,0 +1,10 @@
+%nav
+  = link_to "Alle forlag", all_publishers_path(), class: "button"
+  = link_to "Alle titler", all_titles_path(), class: "button"
+  = link_to "Om os", about_path(), class: "button"
+  = link_to "Kontakt", contact_path(), class: "button"
+  = link_to "Kurv", basket_path(), class: "button"
+  - if user_signed_in?
+    = link_to "Profil", user_path(current_user.id), class: "button"
+  - else
+    = link_to "Opret bruger", new_user_path(), class: "button"

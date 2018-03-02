@@ -1,0 +1,12 @@
+- unless @publisher.image.nil?
+  .pub-cover-wrapper
+    = image_tag @publisher.image.url, class: "pub-cover"
+%h3.text-center= @publisher.name
+= tag.p "Beskrivelse af forlag: " + @publisher.description unless @publisher.description.nil?
+- if @titles.any?
+  %h4.text-center Titler
+  .row
+    = render partial: 'titles/each', collection: @titles, locals: {without_publisher: true}
+- else
+  %p.text-center
+    Forlaget har ingen titler endnu.

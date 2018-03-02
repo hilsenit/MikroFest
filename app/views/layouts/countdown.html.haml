@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Mikrofest | Store bøger fra små forlag
+    = csrf_meta_tags
+    = favicon_link_tag 'favicon.jpg'
+    = stylesheet_link_tag    'countdown', media: 'all'
+    = javascript_include_tag 'application'
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %meta{:content => "Åbner i løbet af 2018. Mikrofest-antologien udkommer d. 3. marts. Følg os på Facebook. Mikrofest er støttet af Statens Kunstfond og Fonden Roskilde Festival.", :name => "description"}/
+    %meta{:content => "#{image_url 'facebook-share.jpg'}", :property => "og:image"}/
+    %meta{:content => "Åbner i løbet af 2018. Mikrofest-antologien udkommer d. 3. marts. Følg os på Facebook. Mikrofest er støttet af Statens Kunstfond og Fonden Roskilde Festival.", :property => "og:description"}/
+  %body
+    = yield

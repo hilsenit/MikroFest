@@ -1,6 +1,8 @@
 require 'faker'
 
-User.create!(email: Faker::Internet.email, password: "hejmeddig", full_name: "Captain Lorem", address: Faker::Address.street_address)
+user = User.new(email: "hej@eksempel.dk", password: "hejmeddig", full_name: "Captain Lorem", address: Faker::Address.street_address)
+user.skip_confirmation!
+user.save!
 
   Publisher.create!(name: Faker::Lorem.sentence(3), description: Faker::Lorem.sentence(18), image: Rails.root.join('app/assets/images/test/publisher.jpg').open)
   Publisher.create!(name: Faker::Lorem.sentence(3), description: Faker::Lorem.sentence(18), image: Rails.root.join('app/assets/images/test/london.jpg').open)

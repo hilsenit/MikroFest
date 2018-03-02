@@ -1,0 +1,10 @@
+= link_to (tag.p "← Forlaget #{@publisher.name}".html_safe), one_publisher_path(@publisher.friendly_id)
+.row
+  .twelve.columns
+    %h3.text-center
+      Titel: #{@title.title}
+.row
+  .eight.columns
+    = tag.p "Beskrivelse: #{@title.description}" unless @title.description.nil?
+  .four.columns
+    = image_tag @title.image.thumb.url unless @title.image.nil?

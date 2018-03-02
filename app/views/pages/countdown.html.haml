@@ -1,0 +1,43 @@
+.countdown-wrapper
+  .ct-box.image-top
+    = image_tag 'giphy.gif', class: "logo-gif"
+  .top-wrapper
+    .ct-box.top-of-tag
+      %br/
+      %div
+        %p.brown-border
+          %b Mikrofest
+      %div
+        %p.brown-border Store bøger fra små forlag
+      %br/
+      ↓
+      %br/
+  .bottom-wrapper
+    .nyhedsbrev
+      = link_to "https://arkivfordetaljer.myshopify.com/collections/all/products/mikrofest", target: "_blank" do
+        = image_tag "mikrofest.jpg", class: "book-front"
+    .ct-box.ct-text-bottom
+      %p
+        %a.brown-link{:href => "https://arkivfordetaljer.myshopify.com/collections/all/products/mikrofest", :target => "_blank"} Køb Mikrofest!
+        %br/
+        Som en snigpremiere udgiver vi sammen med Arkiv for Detaljer antologien Mikrofest – 24 mikro/manifester fra uafhængige danske mikroforlag. 136 siders ustyrligt manifeste digte, tegninger, alfabeter, kærlighedsbreve, programskrifter osv. 129,95 kr.
+        %br/
+        %br/
+        Åbner i løbet af 2018
+        %br/
+        Følg os på
+        %a.black-link{:href => "https://www.facebook.com/mikrofest.dk/", :target => "_blank"} Facebook
+        %br/
+        Sig
+        %a.blue-link{:href => "mailto:hej@mikrofest.dk?Subject=Hej%20Mikrofest", :target => "_top"} hej@mikrofest.dk
+        %br/
+        Mikrofest er støttet af Statens Kunstfond og Fonden Roskilde Festival.
+  .nyhedsbrev-wrapper
+    .error-field-wrapper
+      %p#errField.text-center.d-block
+    .nyhedsbrev
+      = form_for :mailchimp, url: add_to_mailchimp_path(), remote: true do |f|
+        = f.email_field :email, placeholder: "Indtast email"
+        = f.text_field :first_name, placeholder: "Indtast fornavn"
+        = f.text_field :last_name, placeholder: "Indtast efternavn"
+        = f.submit "Tilmeld dig vores nyhedsbrev"

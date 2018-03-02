@@ -1,3 +1,9 @@
+@import 'imports/colors';
+
+.form-errors p {
+  background-color: $error_msg_background;
+  color: $error_msg_color;
+}
 
 .pub-cover-wrapper {
   overflow: hidden;

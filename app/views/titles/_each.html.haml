@@ -1,0 +1,10 @@
+- without_publisher ||= false
+.each-title.three.columns
+  - unless without_publisher
+    %p
+      Af forlaget #{link_to each.publisher.name, one_publisher_path(each.publisher.friendly_id)}
+  = link_to one_title_path(each.publisher.friendly_id, each.friendly_id) do
+    = image_tag each.image.thumb.url unless each.image.nil?
+    %h5
+      = each.title
+    = tag.p truncate(each.description, length: 50) unless each.description.nil?

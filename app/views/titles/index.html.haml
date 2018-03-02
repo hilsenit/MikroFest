@@ -1,0 +1,21 @@
+%h3.text-center
+  Titler af #{@publisher.name}
+= link_to "← Tilbage til forlag".html_safe, publishers_path()
+- if @titles.any?
+  %table
+    %th Titel:
+    %th
+    %th
+    %th
+    - @titles.each do |tit|
+      %tr
+        %td= tit.title
+        %td= link_to "Vis", one_title_path(tit.publisher.id, tit.id), class: "button"
+        %td
+          = link_to "Rediger", edit_publisher_title_path(tit.publisher.id, tit.id), class: "button"
+        %td
+          = link_to "Slet", publisher_title_path(tit.publisher.id, tit.id), method: :delete, data: {confirm: "Er du sikker på, at du vil slette #{tit.title}?"}, class: "button"
+- else
+  %p.text-center
+    Ingen titler er blevet oprettet endnu for #{@publisher.name}
+= link_to "Opret ny titel", new_publisher_title_path(@publisher.id), class: "button button-primary"

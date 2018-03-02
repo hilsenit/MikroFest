@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Admin | Mikrofest
+    = csrf_meta_tags
+    = favicon_link_tag 'favicon.jpg'
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+  %body
+    = link_to "← Gå til forside".html_safe, root_path(), class: "text-center d-block"
+    = render partial: 'shared/admin_header'
+    .container
+      = render partial: 'shared/messages'
+      = yield

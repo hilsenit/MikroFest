@@ -36,7 +36,7 @@ class TitlesController < ApplicationController
 
 	def update
 		@publisher = Publisher.friendly.find(params[:publisher_id])
-		@title = Title.find(params[:id])
+		@title = Title.friendly.find(params[:id])
 		@title.publisher_id = @publisher.id
 		if @title.update(title_params)
 			flash[:notice] = "#{@title.title} er blevet opdateret"
