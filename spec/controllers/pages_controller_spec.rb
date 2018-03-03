@@ -1,6 +1,6 @@
 require 'rails_helper'
 require 'factories/users'
-require 'factories/publisher'
+require 'factories/publishers'
 
 RSpec.describe PagesController, type: :controller do
   describe "#countdown" do

@@ -1,22 +1,20 @@
 = link_to "← tilbage til #{@publisher.name}s titler".html_safe, publisher_titles_path(@publisher.id)
-= form_for [@publisher, @title] do |f|
+= form_for [@publisher, @title], class: "form-group" do |f|
   = render partial: 'forms/shared/error_messages', locals: {record: @title}
-  .row
-    .six.columns
-      = f.label :title, "Titel"
-      = f.text_field :title, class: "u-full-width"
-    .six.columns
-  = f.label :description, "Beskrivelse af titel"
-  = f.text_area :description, class: "u-full-width"
-  .row
-    .six.columns
-      - if @title.image.nil?
-        = f.label "Tilføj nyt billede"
-        = f.file_field :image
-      - else
-        = image_tag @title.image.thumb.url
-        = f.label "Tilføj et andet billede"
-        = f.file_field :image
+  .col-12.col-sm-6
+    = f.label :title, "Titel", class: "form-label"
+    = f.text_field :title, class: "form-input"
+  .col-12
+    = f.label :description, "Beskrivelse af titel", class: "form-label"
+    = f.text_area :description, class: "form-input"
+  .col-12.col-sm-6
+  - if @title.image.file.nil?
+    = f.label "Tilføj nyt billede"
+    = f.file_field :image
+  - else
+    = image_tag @title.image.thumb.url
+    = f.label "Tilføj et andet billede"
+    = f.file_field :image
 
   %h5 Anmeldelser:
   .row.reviews

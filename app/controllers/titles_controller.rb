@@ -9,6 +9,7 @@ class TitlesController < ApplicationController
 	def new
 		@publisher = Publisher.friendly.find(params[:publisher_id])
 		@title = Title.new
+    @title.reviews.build
 	end
 
 	def show

@@ -50,4 +50,6 @@ gem 'rmagick'
 gem 'mini_magick'
 gem 'jquery-rails'
 gem 'cocoon'
+gem 'simple_form'
+
 
