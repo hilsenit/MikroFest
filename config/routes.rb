@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 		resources :titles
 	end
 
+  # Favorites
+  post 'add_favorite/:title_id' => 'favorites#create', as: :save_favorite
+
   # MailChimp
   post 'tilfoej-bruger-til-mailliste' => 'mailchimp#add_mail_to_list', as: :add_to_mailchimp
 
