@@ -1,21 +1,22 @@
 %h3.text-center Forlag
 - if @publishers.any?
-  %table
-    %th Forlagets navn:
-    %th Antal titler:
-    %th
-    %th
-    %th
-    - @publishers.each do |pub|
+  %table.table.table-striped.table-hover
+    %thead
       %tr
-        %td= pub.name
-        %td= pub.titles.length if pub.titles.any?
-        %td= link_to "Titler", publisher_titles_path(pub.friendly_id), class: "button"
-        %td
-          = link_to "Rediger", edit_publisher_path(pub.friendly_id), class: "button"
-        %td
-          = link_to "Slet", publisher_path(pub.friendly_id), method: :delete,
-            data: {confirm: "Er du sikker på, at du vil slette #{pub.name}?"}, class: "button"
+        %th Forlagets navn:
+        %th Antal titler:
+        %th
+        %th
+        %th
+    - @publishers.each do |pub|
+      %tbody
+        %tr
+          %td= pub.name
+          %td= pub.titles.length if pub.titles.any?
+          %td= link_to "Titler", publisher_titles_path(pub.friendly_id), class: "button"
+          %td= link_to "Rediger", edit_publisher_path(pub.friendly_id), class: "button"
+          %td= link_to "Slet", publisher_path(pub.friendly_id), method: :delete,
+              data: {confirm: "Er du sikker på, at du vil slette #{pub.name}?"}, class: "button"
 - else
   %p.text-center
     Ingen forlag er blevet oprettet endnu
