@@ -2,9 +2,10 @@ require 'rails_helper'
 require 'factories/publishers'
 
 RSpec.feature "Title", type: :feature do
-  describe "when creating a new title" do
+  describe "when editing a user" do
   let(:publisher) { create(:publisher) }
-  before { visit new_publisher_title_path(publisher.id) }
+  let(:title) { create(:title, publisher_id: publisher.id) }
+  before { visit edit_publisher_title_path(publisher.id, title.id) }
 
     it "should contain reviews fields" do
       expect(page).to have_css("[name='title[title]']")

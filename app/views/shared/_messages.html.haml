@@ -1,4 +1,6 @@
 - if notice.present?
-  %p.notice.text-center= notice
+  .bg-success
+    %p.notice.text-center= notice
 - if alert.present?
-  %p.alert.text-center= alert
+  .bg-warnings
+    %p.alert.text-center= alert

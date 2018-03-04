@@ -1,4 +1,4 @@
 - unless record.errors.empty?
-  .form-errors
+  .bg-warnings
     - record.errors.full_messages.each do |msg| 
       %p.text-center= msg

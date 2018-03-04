@@ -1,9 +1,12 @@
-.nested-fields.three.columns.review
-    = link_to_remove_association "&#10005;".html_safe, f
-    = f.label "Skrevet af:"
-    = f.text_field :written_by
-    = f.label "Anmeldelse"
-    = f.text_area :text
-    = f.label "Link til hele anmeldelsen"
-    = f.text_field :url
+.nested-fields.card.column.col-sm-12.col-xl-4.pb-2
+  = link_to_remove_association "&#10005;".html_safe, f
+  .card-header
+  = f.label "Skrevet af:"
+  = f.text_field :written_by
+  .card-body
+  = f.label "Anmeldelse"
+  = f.text_area :text
+  .card-footer
+  = f.label "Link til hele anmeldelsen"
+  = f.text_field :url
 

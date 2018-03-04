@@ -33,6 +33,9 @@ class TitlesController < ApplicationController
 	def edit
 		@publisher = Publisher.friendly.find(params[:publisher_id])
 		@title = Title.find(params[:id])
+    if @title.reviews.empty?
+      @title.reviews.build
+    end
 	end
 
 	def update

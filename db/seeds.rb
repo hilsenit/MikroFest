@@ -16,4 +16,8 @@ end
   Title.create!(title: Faker::Lorem.sentence(3), description: Faker::Lorem.sentence(10), publisher_id: Publisher.last.id, image: Rails.root.join('app/assets/images/test/title.jpg').open)
 end
 
-puts "#{User.count} user created - #{Publisher.count} publishers created - #{Title.count} titles created"
+3.times do
+  Review.create!(written_by: Faker::Name.first_name, text: Faker::Lorem.sentence(10), title_id: Title.last.id, url: Faker::Internet.url)
+end
+
+puts "#{User.count} user created - #{Publisher.count} publishers created - #{Title.count} titles created - #{Review.count} reviews created"

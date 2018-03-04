@@ -1,10 +1,23 @@
 = link_to (tag.p "← Forlaget #{@publisher.name}".html_safe), one_publisher_path(@publisher.friendly_id)
-.row
-  .twelve.columns
-    %h3.text-center
-      Titel: #{@title.title}
-.row
-  .eight.columns
+= link_to "Rediger", edit_publisher_title_path(@publisher.friendly_id, @title.friendly_id)
+
+.columns
+  .column.col-12
+    %h3.text-center= @title.title
+.columns
+  .column.col-xl-8.col-sm-12
     = tag.p "Beskrivelse: #{@title.description}" unless @title.description.nil?
-  .four.columns
+  .columns.col-xl-4.col-sm-12
     = image_tag @title.image.thumb.url unless @title.image.nil?
+  - if @title.reviews.any?
+    .columns.mt-4
+    %h5.column.col-12.text-center Anmeldelser
+    - @title.reviews.each do |review| 
+      .column.col-xl-3.col-sm-12.card.pb-2
+        .card-header= review.written_by
+        .card-body= review.text
+        - if review.url.present?
+          .card-footer= link_to "Gå til hele anmeldelse", review.url, target: "_blank"
+        
+      
+    
