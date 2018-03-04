@@ -5,7 +5,7 @@
 = tag.p "Beskrivelse af forlag: " + @publisher.description unless @publisher.description.nil?
 - if @titles.any?
   %h4.text-center Titler
-  .row
+  .columns
     = render partial: 'titles/each', collection: @titles, locals: {without_publisher: true}
 - else
   %p.text-center

@@ -1,5 +1,20 @@
 %h2.text-center Din profil
-%ul
-  = tag.li "Navn: " + @user.full_name
-  = tag.li "Email: " + @user.email
-  = tag.li "Adresse: " + @user.address
+%ul.tab.tab-block
+  %li.tab-item.active
+    = link_to "Oplysninger", "#"
+  %li.tab-item.active
+    = link_to "Favoritter", "#"
+  %li.tab-item.active
+    = link_to "Anmeldelser", "#"
+  %li.tab-item.active
+    = link_to "Køb", "#"
+
+.tile
+  .tile-icon
+    .example-tile-icon
+      %i.icon.icon-file.centered
+  .tile-content
+    %p.tile-title= @user.full_name if @full_name.present?
+    %p.tile-subtitle.text-gray Earth's Mightiest Heroes joined forces to take on threats that were too big for any one hero to tackle...
+  .tile-action
+    = link_to "Rediger", edit_user_path(@user.id), class: "btn btn-primary"

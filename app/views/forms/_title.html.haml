@@ -7,16 +7,16 @@
   .col-12
     = f.label :description, "Beskrivelse af titel", class: "form-label"
     = f.text_area :description, class: "form-input"
-  .col-12.col-sm-6
+  .col-12.col-sm-6.mb-4
   - if @title.image.file.nil?
     = f.label "Tilføj nyt billede"
     = f.file_field :image
   - else
-    = image_tag @title.image.thumb.url
+    = image_tag @title.image.thumb.url 
     = f.label "Tilføj et andet billede"
-    = f.file_field :image
+    = f.file_field :image, class: "btn btn-secondary"
 
-  %h5 Anmeldelser:
+  %h5.mb-4 Anmeldelser:
   .columns
     = f.fields_for :reviews do |r|
       = render 'review_fields', f: r
@@ -24,4 +24,4 @@
       = link_to_add_association 'Tilføj anmeldelse', f, :reviews, class: "btn btn-secondary"
 
   .clear
-    = f.submit "Gem titel", class: "button-primary"
+    = f.submit "Gem titel", class: "btn btn-primary"

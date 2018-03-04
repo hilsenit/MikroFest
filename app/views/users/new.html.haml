@@ -1,5 +1,5 @@
-.row
-  .columns.eight  
+.columns
+  .column.col-xl-8.col-12
     %h3 Du er ved at skrive dig op til noget ret fantastisk
     %p Suspendisse massa lorem, dignissim at, vehicula et, ornare non, libero.
     Donec molestie, velit quis dictum scelerisque, est lectus hendrerit lorem,
@@ -11,12 +11,13 @@
     Nulla imperdiet leo. Mauris hendrerit, sem at mollis pharetra, leo sapien
     pretium elit, a faucibus sapien dolor vel pede. Vestibulum et enim ut nulla
     sollicitudin adipiscing. Suspendisse malesuada venenatis mauris. 
-  .columns.four
-    = simple_form_for @user do |f| 
-      = f.input :full_name, label: "Fulde navn", input_html: { class: "u-full-width" }
-      = f.input :address, label: "Adresse", input_html: { class: "u-full-width" }
-      = f.input :email, label: "Email-adresse", input_html: { class: "u-full-width" }
-      = f.input :password, label: "Kodeord", input_html: { class: "u-full-width" }
-      = f.submit "Opret bruger", class: "button-primary"
+  .column.col-xl-4.col-12
+    = simple_form_for @user, class: "form-group" do |f| 
+      = f.input :full_name, label: "Fulde navn", input_html: { class: "form-input" }
+      = f.input :address, label: "Adresse", input_html: { class: "form-input" }
+      = f.input :email, label: "Email-adresse", input_html: { class: "form-input" }
+      = f.input :password, label: "Kodeord", input_html: { class: "form-input" }
+      %hr
+      = f.submit "Opret bruger", class: "btn btn-primary"
 
 

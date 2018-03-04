@@ -1,6 +1,8 @@
 - if notice.present?
-  .bg-success
-    %p.notice.text-center= notice
+  .toast.toast-success.text-center
+    %button.btn.btn-clear.float-right
+    = notice
 - if alert.present?
-  .bg-warnings
-    %p.alert.text-center= alert
+  .toast.toast-warnings.text-center
+    %button.btn.btn-clear.float-right
+    = alert

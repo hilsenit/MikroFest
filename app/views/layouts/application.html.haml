@@ -9,10 +9,10 @@
     = javascript_include_tag 'application'
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
   %body
+    = render partial: 'shared/messages'
     = render partial: 'shared/header'
     .container.grid-lg
       = render partial: 'shared/menu'
-      = render partial: 'shared/messages'
       .content-wrapper
         = yield
       = render partial: 'shared/footer'

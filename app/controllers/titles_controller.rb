@@ -32,7 +32,7 @@ class TitlesController < ApplicationController
 
 	def edit
 		@publisher = Publisher.friendly.find(params[:publisher_id])
-		@title = Title.find(params[:id])
+		@title = Title.friendly.find(params[:id])
     if @title.reviews.empty?
       @title.reviews.build
     end
