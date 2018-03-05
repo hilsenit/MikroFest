@@ -28,9 +28,10 @@ function setTabsSelectedDivs() {
       tab.classList.add('active');
 
       // Hide other divs
-      other_divs = document.querySelectorAll('.tabs-open');
+      other_divs = document.querySelectorAll('.tabs-divs');
       Array.from(other_divs).forEach(function(o_div) { o_div.classList.add('d-none'); });
       // Open target div
+      debugger;
       open_div_class = tab.dataset.target;
       open_div = document.getElementsByClassName(open_div_class)[0];
       open_div.classList.remove('d-none');

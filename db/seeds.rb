@@ -20,4 +20,7 @@ end
   Review.create!(written_by: Faker::Name.first_name, text: Faker::Lorem.sentence(10), title_id: Title.last.id, url: Faker::Internet.url)
 end
 
-puts "#{User.count} user created - #{Publisher.count} publishers created - #{Title.count} titles created - #{Review.count} reviews created"
+Favorite.create!(user_id: User.first.id, title_id: Title.last.id)
+
+
+puts "#{User.count} user created - #{Publisher.count} publishers created - #{Title.count} titles created - #{Review.count} reviews created - #{Favorite.count} favorites created"

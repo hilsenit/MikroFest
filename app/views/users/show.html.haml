@@ -1,13 +1,13 @@
 %h2.text-center Din profil
 %ul.tab.tab-block
-  %li.tab-item.mikro-tabs{ class: tabs_open_helper(tabs_param: params[:profile], tab_id: "user-information", default_tab: true) }
-    = link_to "Oplysninger", "#", data: {target: 'user-information'}
-  %li.tab-item.mikro-tabs{ class: tabs_open_helper(tabs_param: params[:profile], tab_id: "favorites") }
-    = link_to "Favoritter", "#", data: {target: 'favorites'}
-  %li.tab-item.mikro-tabs{ class: tabs_open_helper(tabs_param: params[:profile], tab_id: "purchases") }
-    = link_to "Tidligere køb", "#", data: {target: 'purchases'}
-  %li.tab-item.mikro-tabs{ class: tabs_open_helper(tabs_param: params[:profile], tab_id: "contact") }
-    = link_to "Kontakt", "#", data: {target: 'contact'}
+  %li.tab-item.mikro-tabs{ class: tabs_open_helper(tabs_param: params[:profile], tab_id: "user-information", default_tab: true), data: {target: 'user-information'} }
+    = link_to "Oplysninger", "#"
+  %li.tab-item.mikro-tabs{ class: tabs_open_helper(tabs_param: params[:profile], tab_id: "favorites"), data_target: "favorites", data: { target: 'favorites'} }
+    = link_to "Favoritter", "#"
+  %li.tab-item.mikro-tabs{ class: tabs_open_helper(tabs_param: params[:profile], tab_id: "purchases"), data: { target: 'purchases'} }
+    = link_to "Tidligere køb"
+  %li.tab-item.mikro-tabs{ class: tabs_open_helper(tabs_param: params[:profile], tab_id: "contact"), data: { target: 'contact'} }
+    = link_to "Kontakt", "#"
 
 .user-profile-content
 = render 'user_information'

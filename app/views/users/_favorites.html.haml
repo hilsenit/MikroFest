@@ -1,2 +1,7 @@
-.favorites.tabs-divs
-  %h2 Favoritter
+.favorites.tabs-divs{class: tabs_open_helper(tabs_param: params[:profile], tab_id: "favorites", active_class: "d-block", inactive_class: "d-none")}
+- if @user.favorites.any?
+  - favorites = @user.favorites 
+  - favorites.each do |favorite| 
+    - byebug
+- else
+%p.text-center Du har ikke gemt nogle favoritter endnu
