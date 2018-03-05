@@ -11,7 +11,7 @@ class FavoritesController < ApplicationController
         "#{title.title} er blevet gemt under dine #{view_context.link_to('favoritter', user_url(current_user.id, profile: 'favorites'))}"
       render template: 'shared/js/notice.js'
     else
-      @message = "#{title.title} kunne ikke gemmes, da du allerede har gemt den under dine favoritter"
+      @message = "#{title.title} kunne ikke gemmes, da du allerede har gemt den under dine #{view_context.link_to('favoritter', user_url(current_user.id, profile: 'favorites'))}"
       render template: 'shared/js/error.js'
     end
   end

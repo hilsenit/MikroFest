@@ -1,9 +1,9 @@
 example_id                                                | status  | run_time        |
 --------------------------------------------------------- | ------- | --------------- |
-./spec/controllers/favorites_controller_spec.rb[1:1:1]    | passed  | 0.99832 seconds |
-./spec/controllers/favorites_controller_spec.rb[1:1:2]    | passed  | 0.54993 seconds |
-./spec/controllers/favorites_controller_spec.rb[1:2:1]    | passed  | 0.5773 seconds  |
-./spec/controllers/favorites_controller_spec.rb[1:2:2]    | passed  | 0.64628 seconds |
+./spec/controllers/favorites_controller_spec.rb[1:1:1]    | passed  | 0.71868 seconds |
+./spec/controllers/favorites_controller_spec.rb[1:1:2]    | passed  | 0.32533 seconds |
+./spec/controllers/favorites_controller_spec.rb[1:2:1]    | passed  | 0.31062 seconds |
+./spec/controllers/favorites_controller_spec.rb[1:2:2]    | passed  | 0.30416 seconds |
 ./spec/controllers/mailchimp_controller_spec.rb[1:1:1]    | passed  | 0.02232 seconds |
 ./spec/controllers/mailchimp_controller_spec.rb[1:1:2]    | passed  | 0.00378 seconds |
 ./spec/controllers/mailchimp_controller_spec.rb[1:1:3]    | passed  | 0.00623 seconds |
