@@ -1,7 +1,6 @@
 :plain
   div = document.getElementsByClassName('js-message')[0];
-  console.log(div);
   div.classList.remove('d-none');
   div.classList.add('toast', 'toast-success');
-  div.insertAdjacentHTML('beforeend', '#{@message}');
+  div.insertAdjacentHTML('beforeend', '#{@message.html_safe}');
 

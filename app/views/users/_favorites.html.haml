@@ -1,7 +1,23 @@
 .favorites.tabs-divs{class: tabs_open_helper(tabs_param: params[:profile], tab_id: "favorites", active_class: "d-block", inactive_class: "d-none")}
-- if @user.favorites.any?
-  - favorites = @user.favorites 
-  - favorites.each do |favorite| 
-    - byebug
-- else
-%p.text-center Du har ikke gemt nogle favoritter endnu
+  - if @user.favorites.any?
+    - @user.favorites.each do |favorite| 
+      - title = return_title_helper favorite.id
+      .tile
+        .tile-icon
+          .example-tile-icon
+            %i.icon.icon-file.centered
+        .tile-content
+          %p.tile-title= title.title
+          %p.tile-subtitle.text-gray= truncate(title.description, length: 50) unless title.description.nil?
+        .tile-action
+          %button.btn.btn-secondary Del
+          = link_to "Slet", delete_favorite_path(favorite.id), method: :delete, data: {confirm: "Er du sikker på, at du vil slette '#{title.title}' fra dine favoritter?" }, class: "btn btn-warning"
+
+  - else
+    .empty
+      .empty-icon
+        %i.icon.icon-plus
+      %p.empty-title.h5 Du har ingen favoritter endnu
+      %p.empty-subtitle Med favoritter kan du vise omverdenen hvilke titler, som du holder ekstra meget af
+      .empty-action
+        %button.btn.btn-primary Læs mere om favoritter

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 	end
 
   # Favorites
+  delete 'delete_favorite/:id' => 'favorites#destroy', as: :delete_favorite
   post 'add_favorite/:title_id' => 'favorites#create', as: :save_favorite
 
   # MailChimp

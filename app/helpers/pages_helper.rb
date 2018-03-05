@@ -13,4 +13,8 @@ module PagesHelper
     end
   end
 
+  def return_title_helper title_id
+    Title.find(title_id)
+  end
+
 end
