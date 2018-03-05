@@ -1,6 +1,6 @@
 require 'rails_helper'
 require 'factories/users'
-require 'factories/users'
+require 'factories/publishers'
 require 'factories/titles'
 
 RSpec.describe FavoritesController, type: :controller do
@@ -14,6 +14,7 @@ RSpec.describe FavoritesController, type: :controller do
       post :create, params: {title_id: title.id }
       expect(Favorite.count).to eq(1)
     end
+
     it "should not create a favorite when user isn't logged in" do
       post :create, params: {title_id: title.id }
       expect(Favorite.count).to eq(0)

@@ -5,6 +5,7 @@ FactoryBot.define do
     email { Faker::Internet.email }
     address { Faker::Address.street_address }
     password { Faker::Internet.password }
+    confirmed_at Date.today
   end
 
 
