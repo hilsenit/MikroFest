@@ -13,7 +13,7 @@ RSpec.feature "User", type: :feature do
     end
 
     it "should show error if one field isn't filled" do
-
+      #missing
 
     end
   end

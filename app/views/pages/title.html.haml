@@ -2,8 +2,10 @@
 = link_to "Rediger", edit_publisher_title_path(@publisher.friendly_id, @title.friendly_id)
 
 .columns
-  .column.col-12
+  .column.col-11
     %h3.text-center= @title.title
+  .column.col-1= link_to 'Gem som favorit', save_favorite_path(@title.id), method: :post, remote: true, class: "save-favorite"
+
 .columns
   .column.col-xl-8.col-sm-12
     = tag.p "Beskrivelse: #{@title.description}" unless @title.description.nil?

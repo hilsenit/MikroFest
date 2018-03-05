@@ -17,3 +17,26 @@
 
 
 
+function setTabsSelectedDivs() {
+  var tabs = document.querySelectorAll('.mikro-tabs');
+  Array.from(tabs).forEach(function(tab) {
+    console.log(tab);
+    tab.addEventListener('click', function(e) {
+      e.preventDefault();
+      // Remove active from other tabs
+      Array.from(tabs).forEach(function(each_tab) { each_tab.classList.remove('active'); });
+      tab.classList.add('active');
+
+      // Hide other divs
+      other_divs = document.querySelectorAll('.tabs-open');
+      Array.from(other_divs).forEach(function(o_div) { o_div.classList.add('d-none'); });
+      // Open target div
+      open_div_class = tab.dataset.target;
+      open_div = document.getElementsByClassName(open_div_class)[0];
+      open_div.classList.remove('d-none');
+      open_div.classList.add('d-block');
+    });
+  });
+}
+
+window.addEventListener('load', setTabsSelectedDivs);

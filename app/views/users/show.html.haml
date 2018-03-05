@@ -1,20 +1,16 @@
 %h2.text-center Din profil
 %ul.tab.tab-block
   %li.tab-item.active
-    = link_to "Oplysninger", "#"
+    = link_to "Oplysninger", "#", class: "mikro-tabs", data: {target: 'user-information'}
   %li.tab-item.active
-    = link_to "Favoritter", "#"
+    = link_to "Favoritter", "#", class: "mikro-tabs", data: {target: 'favorites'}
   %li.tab-item.active
-    = link_to "Tidligere køb", "#"
+    = link_to "Tidligere køb", "#", class: "mikro-tabs", data: {target: 'purchases'}
   %li.tab-item.active
-    = link_to "Kontakt", "#"
+    = link_to "Kontakt", "#", class: "mikro-tabs", data: {target: 'contact'}
 
-.tile
-  .tile-icon
-    .example-tile-icon
-      %i.icon.icon-file.centered
-  .tile-content
-    %p.tile-title= @user.full_name if @full_name.present?
-    %p.tile-subtitle.text-gray Earth's Mightiest Heroes joined forces to take on threats that were too big for any one hero to tackle...
-  .tile-action
-    = link_to "Rediger", edit_user_path(@user.id), class: "btn btn-primary"
+= render 'user_information'
+= render 'favorites'
+= render 'purchases'
+= render 'contact'
+

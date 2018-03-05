@@ -1,0 +1,10 @@
+.user-information.tabs-open.d-none
+  .tile
+    .tile-icon
+      .example-tile-icon
+        %i.icon.icon-file.centered
+    .tile-content
+      %p.tile-title= @user.full_name if @full_name.present?
+      %p.tile-subtitle.text-gray Earth's Mightiest Heroes joined forces to take on threats that were too big for any one hero to tackle...
+    .tile-action
+      = link_to "Rediger", edit_user_path(@user.id), class: "btn btn-primary"
