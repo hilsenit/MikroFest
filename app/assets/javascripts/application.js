@@ -40,4 +40,16 @@ function setTabsSelectedDivs() {
   });
 }
 
+function closeParentWhenClicked() {
+  messages = document.querySelectorAll('.btn-clear');
+  Array.from(messages).forEach(function(msg) {
+    msg.addEventListener('click', function(e) {
+      e.preventDefault();
+      parentDiv = msg.parentNode;
+      parentDiv.classList.add('d-none');
+    });
+  });
+}
+
 window.addEventListener('load', setTabsSelectedDivs);
+window.addEventListener('load', closeParentWhenClicked);

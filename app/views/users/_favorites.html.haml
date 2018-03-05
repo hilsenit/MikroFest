@@ -1,7 +1,7 @@
 .favorites.tabs-divs{class: tabs_open_helper(tabs_param: params[:profile], tab_id: "favorites", active_class: "d-block", inactive_class: "d-none")}
   - if @user.favorites.any?
     - @user.favorites.each do |favorite| 
-      - title = return_title_helper favorite.id
+      - title = return_title_helper favorite.title_id
       .tile
         .tile-icon
           .example-tile-icon
