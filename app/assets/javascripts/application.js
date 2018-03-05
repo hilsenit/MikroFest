@@ -20,9 +20,9 @@
 function setTabsSelectedDivs() {
   var tabs = document.querySelectorAll('.mikro-tabs');
   Array.from(tabs).forEach(function(tab) {
-    console.log(tab);
     tab.addEventListener('click', function(e) {
       e.preventDefault();
+
       // Remove active from other tabs
       Array.from(tabs).forEach(function(each_tab) { each_tab.classList.remove('active'); });
       tab.classList.add('active');

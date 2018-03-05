@@ -1,14 +1,15 @@
 %h2.text-center Din profil
 %ul.tab.tab-block
-  %li.tab-item.active
-    = link_to "Oplysninger", "#", class: "mikro-tabs", data: {target: 'user-information'}
-  %li.tab-item.active
-    = link_to "Favoritter", "#", class: "mikro-tabs", data: {target: 'favorites'}
-  %li.tab-item.active
-    = link_to "Tidligere køb", "#", class: "mikro-tabs", data: {target: 'purchases'}
-  %li.tab-item.active
-    = link_to "Kontakt", "#", class: "mikro-tabs", data: {target: 'contact'}
+  %li.tab-item.mikro-tabs{ class: tabs_open_helper(tabs_param: params[:profile], tab_id: "user-information", default_tab: true) }
+    = link_to "Oplysninger", "#", data: {target: 'user-information'}
+  %li.tab-item.mikro-tabs{ class: tabs_open_helper(tabs_param: params[:profile], tab_id: "favorites") }
+    = link_to "Favoritter", "#", data: {target: 'favorites'}
+  %li.tab-item.mikro-tabs{ class: tabs_open_helper(tabs_param: params[:profile], tab_id: "purchases") }
+    = link_to "Tidligere køb", "#", data: {target: 'purchases'}
+  %li.tab-item.mikro-tabs{ class: tabs_open_helper(tabs_param: params[:profile], tab_id: "contact") }
+    = link_to "Kontakt", "#", data: {target: 'contact'}
 
+.user-profile-content
 = render 'user_information'
 = render 'favorites'
 = render 'purchases'

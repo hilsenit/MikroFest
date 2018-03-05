@@ -1,16 +1,12 @@
 module PagesHelper
-  def tabs_open_helper tab_param
-    case tab_params
-    when "user-information"
-      "active"
-    when "favorites"
-      "active"
-    when "purchases"
-      "active"
-    when "contact"
-      "active"
+
+  # I've created a helper to open a certain user page(partial) if a param is added to the path
+  def tabs_open_helper tabs_param:, tab_id:, active_class: "active", inactive_class: "", default_tab: false
+    if default_tab && tabs_param.nil?
+      active_class
     else
-      ""
+      tabs_param == tab_id ?  active_class : inactive_class
     end
   end
+
 end
