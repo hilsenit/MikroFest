@@ -1,6 +1,9 @@
 @import './colors';
 @import './mixins';
 
+.w-100 {
+  width: 100%;
+}
 .content-wrapper {
   margin-top: 20px;
 }

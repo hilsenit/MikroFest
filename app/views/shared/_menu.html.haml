@@ -6,6 +6,8 @@
     = link_to "Kontakt", contact_path(), class: "btn btn-link"
     = link_to "Kurv", basket_path(), class: "btn btn-link"
     - if user_signed_in?
-      = link_to "Profil", user_path(current_user.id), class: "btn btn-link"
+      - profile_menu_text = current_user.full_name.present? ? current_user.full_name : current_user_email_short_helper
+      - icon = '<i class="icon icon-people"></i>'
+      = link_to "#{icon} #{profile_menu_text}".html_safe, user_path(current_user.id), class: "btn btn-link"
     - else
       = link_to "Opret bruger", new_user_path(), class: "btn btn-link"

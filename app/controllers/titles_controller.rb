@@ -65,7 +65,9 @@ class TitlesController < ApplicationController
 	private
 
 	def title_params
-		params.require(:title).permit(:title, :description, :image, :publisher_id, reviews_attributes: [:id, :written_by, :text, :url, :_destroy])
+		params.require(:title).permit(
+      :title, :description, :image, :publisher_id, reviews_attributes: [:id, :written_by, :text, :url, :_destroy]
+    )
 	end
 
 end

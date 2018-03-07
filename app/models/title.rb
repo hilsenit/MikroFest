@@ -12,4 +12,8 @@ class Title < ApplicationRecord
 
   accepts_nested_attributes_for :reviews, reject_if: :all_blank, allow_destroy: true
 
+  def price_in_dkk
+    (price * 100).to_i
+  end
+
 end

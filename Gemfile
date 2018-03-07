@@ -35,6 +35,7 @@ group :test do
   gem "selenium-webdriver"
   gem 'shoulda-matchers', '~> 3.0', require: false
   gem "database_cleaner"
+  gem "stripe-ruby-mock"
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -51,5 +52,6 @@ gem 'mini_magick'
 gem 'jquery-rails'
 gem 'cocoon'
 gem 'simple_form'
+gem 'stripe_event'
 
 

@@ -1,1 +1,13 @@
 .purchases.tabs-divs{class: tabs_open_helper(tabs_param: params[:profile], tab_id: "purchases", active_class: "d-block", inactive_class: "d-none")}
+  - if @orders.any?
+    - @orders.each do |order| 
+      - byebug
+      = order
+  - else
+    .empty
+      .empty-icon
+        %i.icon.icon-download
+      %p.empty-title.h5 Du har ikke købt noget endnu
+      %p.empty-subtitle Det behøves man altså heller ikke, men der er så meget vi gerne vil vise dig!
+      .empty-action
+        = link_to "Se alle bøger", all_titles_path(), class: "btn btn-primary"

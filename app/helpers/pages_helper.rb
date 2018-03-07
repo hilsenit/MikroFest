@@ -13,6 +13,10 @@ module PagesHelper
     end
   end
 
+  def current_user_email_short_helper
+    current_user.email.split("@")[0]
+  end
+
   def return_title_helper title_id
     Title.find(title_id)
   end

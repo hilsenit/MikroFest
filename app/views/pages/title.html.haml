@@ -6,11 +6,16 @@
     %h3.text-center= @title.title
   .column.col-1= link_to 'Gem som favorit', save_favorite_path(@title.id), method: :post, remote: true, class: "save-favorite"
 
+= render 'shared/card_and_charge_form', title: @title if user_signed_in?
+ 
+- if user_signed_in? && current_user.credit_cards.reject{ |card| card.new_record? }.any? # Er der nogle credit_cards, som er blevet gemt?
+  = render 'shared/charge_form', title: @title
 .columns
   .column.col-xl-8.col-sm-12
     = tag.p "Beskrivelse: #{@title.description}" unless @title.description.nil?
   .columns.col-xl-4.col-sm-12
-    = image_tag @title.image.thumb.url unless @title.image.nil?
+    .title-image.w-100= image_tag @title.image.thumb.url unless @title.image.nil?
+    .title-price= "Pris: " + @title.price.to_s + " DKK"
   - if @title.reviews.any?
     .columns.mt-4
     %h5.column.col-12.text-center Anmeldelser
@@ -20,6 +25,7 @@
         .card-body= review.text
         - if review.url.present?
           .card-footer= link_to "Gå til hele anmeldelse", review.url, target: "_blank"
+
         
       
     

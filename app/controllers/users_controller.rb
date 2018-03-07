@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @orders = Stripe::Charge.list(customer: @user.customer_id)
   end
 
   def new

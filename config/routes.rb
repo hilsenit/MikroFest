@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
+  # Users
   devise_for :users, controllers: { registrations: 'users/registrations', passwords: 'users/passwords' }
-  resources :news
   resources :users
+
+  # News
+  resources :news
+
+  # Books an publishers
   resources :publishers do
 		resources :titles
 	end
@@ -16,9 +21,11 @@ Rails.application.routes.draw do
 
 	# Stripe
 	resources :charges
+  resources :credit_cards
+  mount StripeEvent::Engine, at: '/payments'
 	get 'tak-for-dit-koeb' => 'charges#thanks', as: :thanks
 
-	# Sider (pages)
+	# Pages (sider)
   get '/kurv' => 'pages#basket', as: :basket
 	get '/forlagene' => 'pages#publishers', as: :all_publishers
 	get '/forlaget/:id' => 'pages#publisher', as: :one_publisher
