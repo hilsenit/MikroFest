@@ -20,7 +20,7 @@
       = form_for :cart_item, url: :cart_items, method: :post do |f|
         = f.hidden_field :title_id, value: @title.id
         = f.number_field :quantity, value: 1
-        = f.submit "Læg i kurv", class: "btn btn-secondary"
+        = f.submit "Læg i kurv", class: "btn btn-secondary add-to-cart-btn"
   - if @title.reviews.any?
     .columns.mt-4
     %h5.column.col-12.text-center Anmeldelser

@@ -1,6 +1,6 @@
 - if @cart_items.any? 
   %h2 Din kurv:
-  %table
+  %table.w-100
     %thead
       %tr
         %td Stk.
@@ -15,7 +15,7 @@
           %td= link_to item.title.title, one_title_path(item.title.publisher.id, item.title.id)
           %td= link_to item.title.publisher.name, one_publisher_path(item.title.publisher.id)
           %td= pretty_amount_helper(item.quantity * item.title.price)
-          %td= link_to "<i class='icon icon-cross'></i>".html_safe, cart_item_path(item.id), method: :delete
+          %td= link_to "<i class='icon icon-cross'></i>".html_safe, cart_item_path(item.id), method: :delete, class: "delete-cart-item-btn"
 - else
   .empty
     .empty-icon
