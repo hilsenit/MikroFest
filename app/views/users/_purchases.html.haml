@@ -3,21 +3,19 @@
     %table.table.table-striped.table-hover
       %thead
         %tr
-          %th ID:
           %th Dato:
           %th Beløb: 
           %th Titler:
           %th Levering:
-          %th Betaling gennemført?
+          %th Gennemført?
       %tbody
         - @orders.each do |order| 
           %tr 
-            %td= order.id
-            %td= order.created
-            %td= order.amount.to_s + " DKK"
+            %td= Time.at(order.created).to_datetime.strftime('%B %e at %l:%M %p')
+            %td= display_price_helper(order.amount)
             %td Hvad indeholdt ordren?
             %td Kommer snart
-            %td= order.paid ? "<i class='icon icon-check'></i>".html_safe : "<i class='icon icon-check'></i>".html_safe
+            %td.float-right= order.paid ? "<i class='icon icon-check'></i>".html_safe : "<i class='icon icon-check'></i>".html_safe
   - else
     .empty
       .empty-icon

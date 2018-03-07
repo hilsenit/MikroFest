@@ -13,6 +13,10 @@ module PagesHelper
     end
   end
 
+  def display_price_helper amount
+    (amount/100).to_s + " DKK"
+  end
+
   def current_user_email_short_helper
     current_user.email.split("@")[0]
   end
