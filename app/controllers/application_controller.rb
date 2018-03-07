@@ -24,4 +24,11 @@ class ApplicationController < ActionController::Base
       session[:cart_id] = @cart.id
   end
 
+  def authenticate_admin # is coverede for normal user by authenticate_user!
+    unless current_user.admin?
+      flash[:alert] = "Du har ikke administrator rettigheder. Derfor kan du ikke tilgå den side, som du lige prøvede."
+      redirect_to root_path()
+    end
+  end
+
 end

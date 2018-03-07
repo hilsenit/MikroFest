@@ -1,6 +1,5 @@
-%h3.text-center
-  Titler af #{@publisher.name}
 = link_to "← Tilbage til forlag".html_safe, publishers_path()
+%h3.text-center Titler af #{@publisher.name}
 - if @titles.any?
   %table.table.table-striped.table-hover
     %thead

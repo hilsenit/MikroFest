@@ -1,9 +1,14 @@
 require 'faker'
 
-user = User.new(email: "hej@eksempel.dk", password: "hejmeddig", full_name: "Captain Lorem", address: Faker::Address.street_address, favorite_word: "Ballon")
+user = User.new(admin: true, email: "hej@eksempel.dk", password: "hejmeddig", full_name: "Captain Lorem", address: Faker::Address.street_address, favorite_word: "Ballon")
 user.assign_customer_id
 user.skip_confirmation!
 user.save!
+
+user_2 = User.new(email: "hejmeddig@eksempel.dk", password: "hejmeddig", full_name: "Arhh Captain Lorem", address: Faker::Address.street_address, favorite_word: "Ballon")
+user_2.assign_customer_id
+user_2.skip_confirmation!
+user_2.save!
 
   Publisher.create!(name: Faker::Lorem.sentence(3), description: Faker::Lorem.sentence(18), image: Rails.root.join('app/assets/images/test/publisher.jpg').open)
   Publisher.create!(name: Faker::Lorem.sentence(3), description: Faker::Lorem.sentence(18), image: Rails.root.join('app/assets/images/test/london.jpg').open)

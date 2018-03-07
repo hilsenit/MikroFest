@@ -1,0 +1,4 @@
+= render 'shared/card_and_charge_form', title: @title if user_signed_in?
+ 
+- if user_signed_in? && current_user.credit_cards.reject{ |card| card.new_record? }.any? # Er der nogle credit_cards, som er blevet gemt?
+  = render 'shared/charge_form', title: @title

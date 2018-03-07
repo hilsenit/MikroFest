@@ -6,6 +6,7 @@ FactoryBot.define do
     address { Faker::Address.street_address }
     password { Faker::Internet.password }
     favorite_word "Ballademager"
+    admin false
     confirmed_at Date.today
   end
 

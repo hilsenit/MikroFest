@@ -3,8 +3,6 @@ require 'factories/publishers'
 require 'factories/titles'
 require 'factories/reviews'
 
-include ApplicationHelper
-include ActionView::Helpers::NumberHelper
 
 RSpec.feature "Title", type: :feature do
   describe "when showing a title" do

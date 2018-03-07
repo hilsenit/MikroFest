@@ -12,8 +12,9 @@ Rails.application.routes.draw do
 		resources :titles
 	end
 
-  # Cart and cart-items
+  # Cart and checkout
   resources :cart_items
+  get '/checkout' => 'cart_items#checkout'
 
   # Favorites
   delete 'delete_favorite/:id' => 'favorites#destroy', as: :delete_favorite
@@ -29,7 +30,6 @@ Rails.application.routes.draw do
 	get 'tak-for-dit-koeb' => 'charges#thanks', as: :thanks
 
 	# Pages (sider)
-  get '/kurv' => 'pages#basket', as: :basket
 	get '/forlagene' => 'pages#publishers', as: :all_publishers
 	get '/forlaget/:id' => 'pages#publisher', as: :one_publisher
 	get '/alle-titler' => 'pages#titles', as: :all_titles

@@ -1,0 +1,21 @@
+= link_to "← Tilbage til Admin".html_safe, admin_path()
+%h3.text-center Brugere
+- if @users.any?
+  %table.w-100
+    %thead
+      %tr 
+        %th Fulde navn
+        %th Email
+        %th Oprettet for
+        %th Sidst logget ind
+        %th
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td= user.full_name if user.full_name.present?
+          %td= user.email
+          %td= time_ago_in_words(user.created_at)
+          %td= time_ago_in_words(user.last_sign_in_at) if user.last_sign_in_at.present?
+          %td= link_to "<i class='icon icon-cross'></i>".html_safe, user_registration_path(), method: :delete, data: { confirm: "Er du sikker på, at du vil slette #{user.email}" }
+
+

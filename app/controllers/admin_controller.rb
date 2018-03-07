@@ -3,6 +3,7 @@ class AdminController < ApplicationController
 	layout 'admin'
 
 	def index
+    authenticate_admin
 	end
 
 end

@@ -5,12 +5,16 @@ class CartItemsController < ApplicationController
     @cart_items = @cart.cart_items
   end
 
+  def checkout
+
+  end
+
   def create
     @cart = Cart.find(session[:cart_id])
     @cart.add_product(params)
     @title = Title.find(params[:cart_item][:title_id])
     if @cart.save
-      flash[:notice] = "Du har sat #{@title.title} i din kommende reol."
+      flash[:notice] = "Du har sat #{@title.title} i #{view_context.link_to('din kommende reol', cart_items_path())}."
       redirect_to one_title_path(@title.publisher_id, @title.id)
     else
       flash[:alert] = "Der opstod et problem, da du prøvede at lægge #{@title.title} i kurven. Prøv igen."
