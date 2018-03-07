@@ -16,6 +16,11 @@
   .columns.col-xl-4.col-sm-12
     .title-image.w-100= image_tag @title.image.thumb.url unless @title.image.nil?
     .title-price= "Pris: " + @title.price.to_s + " DKK"
+    .form-group
+      = form_for :cart_item, url: :cart_items, method: :post do |f|
+        = f.hidden_field :title_id, value: @title.id
+        = f.number_field :quantity, value: 1
+        = f.submit "Læg i kurv", class: "btn btn-secondary"
   - if @title.reviews.any?
     .columns.mt-4
     %h5.column.col-12.text-center Anmeldelser

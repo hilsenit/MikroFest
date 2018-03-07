@@ -1,0 +1,29 @@
+- if @cart_items.any? 
+  %h2 Din kurv:
+  %table
+    %thead
+      %tr
+        %td Stk.
+        %td Titel
+        %td Forlag
+        %td Pris
+        %td Fjern
+    %tbody 
+      - @cart_items.each do |item|
+        %tr
+          %td= item.quantity
+          %td= link_to item.title.title, one_title_path(item.title.publisher.id, item.title.id)
+          %td= link_to item.title.publisher.name, one_publisher_path(item.title.publisher.id)
+          %td= (item.quantity * item.title.price).to_s
+          %td Fjern
+- else
+  .empty
+    .empty-icon
+      %i.icon.icon-download
+    %p.empty-title.h5 Der er ikke noget i kurven
+    %p.empty-subtitle Mangler du inspiration?
+    .empty-action
+      = link_to "Se alle bøger", all_titles_path(), class: "btn btn-primary"
+
+   
+

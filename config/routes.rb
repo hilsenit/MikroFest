@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 		resources :titles
 	end
 
+  # Cart and cart-items
+  resources :cart_items
+
   # Favorites
   delete 'delete_favorite/:id' => 'favorites#destroy', as: :delete_favorite
   post 'add_favorite/:title_id' => 'favorites#create', as: :save_favorite

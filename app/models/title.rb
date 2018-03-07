@@ -8,6 +8,8 @@ class Title < ApplicationRecord
 
   has_many :reviews, inverse_of: :title
   has_many :favorites, inverse_of: :title
+  has_many :cart_items, inverse_of: :title
+
 	belongs_to :publisher
 
   accepts_nested_attributes_for :reviews, reject_if: :all_blank, allow_destroy: true

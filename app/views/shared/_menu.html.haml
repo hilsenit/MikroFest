@@ -4,7 +4,7 @@
     = link_to "Alle titler", all_titles_path(), class: "btn btn-link"
     = link_to "Om os", about_path(), class: "btn btn-link"
     = link_to "Kontakt", contact_path(), class: "btn btn-link"
-    = link_to "Kurv", basket_path(), class: "btn btn-link"
+    = link_to "Kurv", cart_items_path(), class: "btn btn-link"
     - if user_signed_in?
       - profile_menu_text = current_user.full_name.present? ? current_user.full_name : current_user_email_short_helper
       - icon = '<i class="icon icon-people"></i>'
