@@ -1,37 +1,46 @@
 class ChargesController < ApplicationController
-	before_action :amount_to_be_charged
-	before_action :set_description
+  before_action :authenticate_user!
+  before_action :find_product
 
 	layout 'application'
 
-	def new
-	end
+  def create
+    stripe_card_id =
+      if params[:credit_card].present?
+        CreditCardService.new(current_user.id, card_params).create_credit_card
+      else
+        charge_params[:card_id]
+      end
 
-	def create
+    Stripe::Charge.create(
+      customer: current_user.customer_id,
+      source:   stripe_card_id,
+      amount:   @product.price_in_cents,
+      currency: 'usd'
+    )
 
-	customer = StripeTools.create_customer(
-																				 email: params[:stripeEmail], stripe_token: params[:stripeToken])
-	charge = StripeTools.create_charge(
-																		 customer_id: customer.id, amount: @amount, description: "")
+    if params[:credit_card].present? && stripe_card_id
+      current_user.credit_cards.create_with(card_params).find_or_create_by(stripe_id: stripe_card_id)
+    end
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to @product
+  end
 
-	redirect_to thanks_path
+  private
 
-	rescue Stripe::CardError => e
-		flash[:error] = e.message
-		redirect_to new_charge_path
-	end
+  def card_params
+    params.require(:credit_card).permit(:number, :month, :year, :cvc)
+  end
 
-	def thanks
-	end
+  def charge_params
+    params.require(:charge).permit(:card_id)
+  end
 
-	private
-
-	def amount_to_be_charged
-		@amount = 500
-	end
-
-	def set_description
-		@description = "Tiny little book - that's nice!"
-	end
-
+  def find_product
+    @product = Product.find(params[:product_id])
+  rescue ActiveRecord::RecordNotFound => e
+    flash[:error] = 'Product not found!'
+    redirect_to root_path
+  end
 end

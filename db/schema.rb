@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180305201824) do
+ActiveRecord::Schema.define(version: 20180307100812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "credit_cards", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "digits"
+    t.integer "month"
+    t.integer "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_credit_cards_on_user_id"
+  end
 
   create_table "favorites", force: :cascade do |t|
     t.bigint "user_id"
@@ -72,6 +82,7 @@ ActiveRecord::Schema.define(version: 20180305201824) do
     t.datetime "updated_at", null: false
     t.bigint "publisher_id"
     t.string "slug"
+    t.integer "price"
     t.index ["publisher_id"], name: "index_titles_on_publisher_id"
     t.index ["slug"], name: "index_titles_on_slug", unique: true
   end
@@ -96,11 +107,13 @@ ActiveRecord::Schema.define(version: 20180305201824) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.string "favorite_word"
+    t.bigint "customer_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "credit_cards", "users"
   add_foreign_key "favorites", "titles"
   add_foreign_key "favorites", "users"
   add_foreign_key "reviews", "titles"
