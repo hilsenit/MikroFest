@@ -8,18 +8,22 @@ class CartItemsController < ApplicationController
   def create
     @cart = Cart.find(session[:cart_id])
     @cart.add_product(params)
+    @title = Title.find(params[:cart_item][:title_id])
     if @cart.save
-      redirect_to cart_items_path
+      flash[:notice] = "Du har sat #{@title.title} i din kommende reol."
+      redirect_to one_title_path(@title.publisher_id, @title.id)
     else
-      flash[:alert] = "Der opstod et problem, da du prøvede at lægge titlen i kurven. Prøv igen."
-      redirect_to one_title_path(@title)
+      flash[:alert] = "Der opstod et problem, da du prøvede at lægge #{@title.title} i kurven. Prøv igen."
+      redirect_to one_title_path(@title.publisher_id, @title.id)
     end
   end
 
   def destroy
     @cart_item = CartItem.find(params[:id])
+    title = @cart_item.title
     @cart_item.destroy
-    redirect_to cart_path
+    flash[:notice] = "Du har slettet #{view_context.link_to(title.title, one_title_path(title.publisher_id, title.id))} fra din kurv"
+    redirect_to cart_items_path()
   end
 
   private

@@ -7,15 +7,15 @@
         %td Titel
         %td Forlag
         %td Pris
-        %td Fjern
+        %td 
     %tbody 
       - @cart_items.each do |item|
         %tr
           %td= item.quantity
           %td= link_to item.title.title, one_title_path(item.title.publisher.id, item.title.id)
           %td= link_to item.title.publisher.name, one_publisher_path(item.title.publisher.id)
-          %td= (item.quantity * item.title.price).to_s
-          %td Fjern
+          %td= pretty_amount_helper(item.quantity * item.title.price)
+          %td= link_to "<i class='icon icon-cross'></i>".html_safe, cart_item_path(item.id), method: :delete
 - else
   .empty
     .empty-icon

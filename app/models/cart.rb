@@ -8,7 +8,6 @@ class Cart < ApplicationRecord
       current_item.save
     else
       self.cart_items.create(title_id: cart_item[:cart_item][:title_id], quantity: cart_item[:cart_item][:quantity], cart_id: self.id)
-      byebug
     end
   end
 end
