@@ -2,5 +2,6 @@
   div = document.getElementsByClassName('js-message')[0];
   div.classList.remove('d-none');
   div.classList.add('toast', 'toast-success');
-  div.insertAdjacentHTML('beforeend', '#{@message.html_safe}');
+  button = "<button class='btn btn-clear float-right'></button>"
+  div.innerHTML = button + '#{@message.html_safe}';
 

@@ -36,6 +36,7 @@ class PagesController < ApplicationController
 	def title
 		@publisher = Publisher.friendly.find(params[:publisher_id])
 		@title = Title.friendly.find(params[:id])
+    @maybe_you_would_like = @publisher.maybe_you_would_like @title.id
 	end
 
 end

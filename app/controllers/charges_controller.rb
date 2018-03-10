@@ -5,7 +5,7 @@ class ChargesController < ApplicationController
 	layout 'application'
 
   def create
-    begin #Stripe::CardError
+    begin
       stripe_card_id =
         if params[:credit_card].present?
           CreditCardService.new(current_user.id, card_params).create_credit_card
@@ -46,7 +46,7 @@ class ChargesController < ApplicationController
   def find_title
     @title = Title.find(params[:title_id])
   rescue ActiveRecord::RecordNotFound => e
-    flash[:error] = 'Bogen findes ikke'
+    flash[:alert] = 'Bogen findes ikke'
     redirect_to root_path
   end
 end

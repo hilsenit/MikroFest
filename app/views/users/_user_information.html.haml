@@ -1,4 +1,6 @@
-.user-information.columns.tabs-divs{class: tabs_open_helper(tabs_param: params[:profile], tab_id: "user-information", active_class: "d-block", inactive_class: "d-none", default_tab: true)}
+.user-information.columns.tabs-divs.pt-4{class: tabs_open_helper(tabs_param: params[:profile], tab_id: "user-information", active_class: "d-block", inactive_class: "d-none", default_tab: true)}
+  %h5= "Yndlingsord: " + @user.favorite_word if @user.favorite_word.present? 
   .column.col-xl-6 
-  .divider-vert{ data: { content: "OR" } }
+    .profile-val= "Navn: " + @user.full_name if @user.full_name.present?
+    .profile-val= "Email: " + @user.email 
   .column.col-xl-6 

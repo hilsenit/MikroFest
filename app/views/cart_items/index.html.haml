@@ -1,8 +1,10 @@
+
 - if @cart_items.any? 
   %h2 Din kurv:
   %table.w-100
     %thead
       %tr
+        %td
         %td Stk.
         %td Titel
         %td Forlag
@@ -11,6 +13,7 @@
     %tbody 
       - @cart_items.each do |item|
         %tr
+          %td= image_tag item.title.image.thumb.url
           %td= item.quantity
           %td= link_to item.title.title, one_title_path(item.title.publisher.id, item.title.id)
           %td= link_to item.title.publisher.name, one_publisher_path(item.title.publisher.id)
@@ -25,12 +28,10 @@
     .empty-action
       = link_to "Se alle bøger", all_titles_path(), class: "btn btn-primary"
 
-= link_to "Gå til checkout", checkout_path(), class: "btn btn-primary"
-   
-
-
-
 .bookshelf--frame
+  - @cart_items.each do |item|
+    .book-wrapper 
+      = link_to image_tag(item.title.image.thumb.url), one_title_path(item.title.publisher_id, item.title.id)
   .book-wrapper
     %img{:alt => "A tall book", :height => "500", :src => "https://placeholdit.imgix.net/~text?txtsize=33&txt=a+tall+book&w=300&h=500", :width => "300"}/
   .book-wrapper
@@ -46,3 +47,5 @@
   .book-wrapper
     %img{:alt => "A wide book", :height => "280", :src => "https://placeholdit.imgix.net/~text?txtsize=33&txt=a+wide+book&w=400&h=280", :width => "400"}/
 
+.columns
+  .column.col-12.pt-4= link_to "Gå til checkout &#8594;".html_safe, checkout_path(), class: "btn btn-primary float-right go-to-checkout-btn"

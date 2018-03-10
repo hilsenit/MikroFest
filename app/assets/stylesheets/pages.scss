@@ -1,0 +1,21 @@
+@import 'imports/transitions';
+
+.headline {
+  text-transform: uppercase;
+}
+.headline-sub {
+  font-size: 0.9em;
+}
+.save-favorite {
+  font-size: 24px;
+  &:hover {
+    color: red;
+    text-decoration: none;
+  }
+}
+.tile {
+  padding: 10px;
+}
+.navbar-section {
+  justify-content: center;
+}

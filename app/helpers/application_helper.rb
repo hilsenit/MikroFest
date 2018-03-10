@@ -7,9 +7,9 @@ module ApplicationHelper
   def cart_items_count_helper
     if @cart.cart_items.any?
       cart_items_count = @cart.cart_items.sum(:quantity)
-      "|#{cart_items_count}| Kurv"
+      "|#{cart_items_count}| Reol"
     else
-      "Kurv"
+      "Reol"
     end
   end
 

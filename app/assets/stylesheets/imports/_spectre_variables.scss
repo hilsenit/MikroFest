@@ -4,8 +4,11 @@ $version: "0.5.1";
 // Core features
 $rtl: false !default;
 
+$brown: #B66338;
+$blue: #0A343A;
+$green: #9EBCBD;
 // Core colors
-$primary-color: #0A343A !default;
+$primary-color: $blue !default;
 $primary-color-dark: darken($primary-color, 3%) !default;
 $primary-color-light: lighten($primary-color, 3%) !default;
 $secondary-color: lighten($primary-color, 37.5%) !default;
@@ -76,7 +79,7 @@ $line-height: 1rem !default;
 $layout-spacing: $unit-2 !default;
 $layout-spacing-sm: $unit-1 !default;
 $layout-spacing-lg: $unit-4 !default;
-$border-radius: $unit-h !default;
+$border-radius: 0; //$unit-h !default;
 $border-width: $unit-o !default;
 $border-width-lg: $unit-h !default;
 $control-size: $unit-9 !default;

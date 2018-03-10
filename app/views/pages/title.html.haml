@@ -3,8 +3,8 @@
 
 .columns
   .column.col-11
-    %h3.text-center= @title.title
-  .column.col-1= link_to 'Gem som favorit', save_favorite_path(@title.id), method: :post, remote: true, class: "save-favorite"
+    %h3= @title.title
+  .column.col-1= link_to '&hearts;'.html_safe, save_favorite_path(@title.id), method: :post, remote: true, class: "save-favorite"
 
 .columns
   .column.col-xl-8.col-sm-12
@@ -26,6 +26,13 @@
         .card-body= review.text
         - if review.url.present?
           .card-footer= link_to "Gå til hele anmeldelse", review.url, target: "_blank"
+
+- if @maybe_you_would_like.any?
+  %h4.mt-4.text-center Måske du vil kunne lide?
+  .columns
+    = render partial: 'titles/each', collection: @maybe_you_would_like, locals: {without_publisher: true}
+        
+  
 
         
       

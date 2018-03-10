@@ -6,7 +6,12 @@ class CartItemsController < ApplicationController
   end
 
   def checkout
-
+    if @cart.cart_items.any?
+      @cart_items = @cart.cart_items
+    else
+      flash[:notice] = "Du har ikke lagt noget i din reol, og kan derfor ikke gå til betaling."
+      redirect_to cart_items_path()
+    end
   end
 
   def create
