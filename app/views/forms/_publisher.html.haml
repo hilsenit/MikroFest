@@ -1,20 +1,22 @@
-= form_for @publisher do |f|
+= tinymce_assets
+= tinymce
+= form_for @publisher, class: "form-group" do |f|
   = render partial: 'forms/shared/error_messages', locals: {record: @publisher}
   .columns
     .column.col-sm-6
-      = f.label :name, "Navn på forlag"
-      = f.text_field :name, class: "u-full-width"
+      = f.label :name, "Navn på forlag", class: "form-label"
+      = f.text_field :name, class: "form-input"
     .column.col-sm-6
     .column.col-12
-      = f.label :description, "Beskrivelse af forlag"
-      = f.text_area :description, class: "u-full-width"
-    .column.col-12
+      = f.label :description, "Beskrivelse af forlag", class: "form-label"
+      = f.text_area :description, class: "form-input tinymce", rows: 20, cols: 120
+      .column.col-12.my-4
       - if @publisher.image.file.nil?
-        = f.label :image, "Tilføj billede"
-        = f.file_field :image
+        = f.label :image, "Tilføj billede", class: "form-label"
+        = f.file_field :image, class: "form-file"
       - else
         = image_tag @publisher.image.thumb.url
-        = f.label :image, "Tilføj et andet billede"
-        = f.file_field :image
-    .column.col-12
-      = f.submit "Gem forlag", class: "button-primary"
+        = f.label :image, "Tilføj et andet billede", class: "form-label"
+        = f.file_field :image, class: "form-file"
+    .column.col-12.pt-4
+      = f.submit "Gem forlag", class: "btn btn-primary"

@@ -4,6 +4,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   validates_presence_of :email, :address, :favorite_word
+  validates_presence_of :favorite_word, message: "Du skal vælge et yndlingsord! Der er så mange gode."
 
   has_many :favorites, inverse_of: :title
   has_many :credit_cards, dependent: :destroy

@@ -2,7 +2,7 @@
   .pub-cover-wrapper
     = image_tag @publisher.image.url, class: "pub-cover"
 %h3.text-center= @publisher.name
-= tag.p "Beskrivelse af forlag: " + @publisher.description unless @publisher.description.nil?
+= @publisher.description.html_safe unless @publisher.description.nil?
 - if @titles.any?
   %h4.text-center Titler
   .columns

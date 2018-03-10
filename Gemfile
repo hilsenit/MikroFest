@@ -53,5 +53,6 @@ gem 'jquery-rails'
 gem 'cocoon'
 gem 'simple_form'
 gem 'stripe_event'
+gem 'tinymce-rails'
 
 

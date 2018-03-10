@@ -14,6 +14,7 @@
         %tr
           %td= pub.name
           %td= pub.titles.length if pub.titles.any?
+          %td= link_to "Vis", one_publisher_path(pub.friendly_id)
           %td= link_to "Titler", publisher_titles_path(pub.friendly_id), class: "button"
           %td= link_to "Rediger", edit_publisher_path(pub.friendly_id), class: "button"
           %td= link_to "Slet", publisher_path(pub.friendly_id), method: :delete,

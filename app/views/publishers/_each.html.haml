@@ -1,3 +1,3 @@
 = link_to one_publisher_path(each.friendly_id), class: "column col-12 col-xl-3 publisher-each" do
   %h5= each.name
-  = tag.p truncate(each.description, length: 50) unless each.description.nil?
+  = tag.p truncate(each.description, length: 50, escape: false) unless each.description.nil?

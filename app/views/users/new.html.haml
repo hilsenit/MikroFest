@@ -1,6 +1,6 @@
 .columns
+  %h3 Du er ved at skrive dig op til noget ret fantastisk
   .column.col-xl-8.col-12
-    %h3 Du er ved at skrive dig op til noget ret fantastisk
     %p Suspendisse massa lorem, dignissim at, vehicula et, ornare non, libero.
     Donec molestie, velit quis dictum scelerisque, est lectus hendrerit lorem,
     eget dignissim orci nisl sit amet massa. Etiam volutpat lobortis eros. Nunc
@@ -12,12 +12,17 @@
     pretium elit, a faucibus sapien dolor vel pede. Vestibulum et enim ut nulla
     sollicitudin adipiscing. Suspendisse malesuada venenatis mauris. 
   .column.col-xl-4.col-12
-    = simple_form_for @user, class: "form-group" do |f| 
-      = f.input :favorite_word, label: "Dit yndlingsord", input_html: { class: "form-input" }
-      = f.input :full_name, label: "Fulde navn", input_html: { class: "form-input" }
-      = f.input :address, label: "Adresse", input_html: { class: "form-input" }
-      = f.input :email, label: "Email-adresse", input_html: { class: "form-input" }
-      = f.input :password, label: "Kodeord", input_html: { class: "form-input" }
+    = form_for @user, class: "form-group" do |f| 
+      = f.label :favorite_word, "Dit yndlingsord *", class: "form-label"
+      = f.text_field :favorite_word, class: "form-input"
+      = f.label :full_name, "Dit fulde navn", class: "form-label"
+      = f.text_field :full_name, class: "form-input"
+      = f.label :address, "Din adresse", class: "form-label"
+      = f.text_field :address, class: "form-input"
+      = f.label :email, "Din email-adresse *", class: "form-label"
+      = f.email_field :email, class: "form-input"
+      = f.label :password, class: "form-label"
+      = f.password_field :password, class: "form-input"
       %hr
       = f.submit "Opret bruger", class: "btn btn-primary"
 

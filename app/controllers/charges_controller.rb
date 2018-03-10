@@ -1,10 +1,11 @@
 class ChargesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_title
+  # before_action :find_title // Removed while i'm creating the new checkout
 
 	layout 'application'
 
   def create
+    @title = @cart.cart_items.first.title
     begin
       stripe_card_id =
         if params[:credit_card].present?

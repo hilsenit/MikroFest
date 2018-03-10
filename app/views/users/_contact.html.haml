@@ -1,1 +1,7 @@
 .contact.tabs-divs{class: tabs_open_helper(tabs_param: params[:profile], tab_id: "contact", active_class: "d-block", inactive_class: "d-none")}
+  %h5 Kontakt
+  = text_field_tag :contact_subject, "", class: "form-input my-2", placeholder: "Emne"
+  = text_area_tag :contact_text, "", class: "form-input", rows: 10
+  = submit_tag "Send besked", class: "btn btn-primary my-4"
+
+    

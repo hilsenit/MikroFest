@@ -465,7 +465,7 @@ textarea.form-input {
 .form-input {
   &:not(:placeholder-shown) {
     &:invalid {
-      border-color: $error-color;
+//      border-color: $error-color; Jeg har fjernet
       &:focus {
         @include control-shadow($error-color);
       }
