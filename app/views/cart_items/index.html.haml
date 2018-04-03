@@ -14,7 +14,13 @@
       - @cart_items.each do |item|
         %tr
           %td= image_tag item.title.image.thumb.url
-          %td= item.quantity
+          %td.title-count 
+            = link_to "+ 1", cart_change_title_count_path(title_id: item.title.id, add: "true"), class: "add-title"
+            %br
+            = item.quantity
+            %br
+            = link_to "- 1", cart_change_title_count_path(title_id: item.title.id, add: "false"), class: "remove-title" unless item.quantity < 2
+
           %td= link_to item.title.title, one_title_path(item.title.publisher.id, item.title.id)
           %td= link_to item.title.publisher.name, one_publisher_path(item.title.publisher.id)
           %td= pretty_amount_helper(item.quantity * item.title.price)

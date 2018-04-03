@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # Cart and checkout
   resources :cart_items
   get '/checkout' => 'cart_items#checkout'
+  get '/add_cart_title/:title_id/:add' => 'cart_items#change_title_count', as: :cart_change_title_count
 
   # Favorites
   delete 'delete_favorite/:id' => 'favorites#destroy', as: :delete_favorite

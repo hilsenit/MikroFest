@@ -11,6 +11,16 @@ RSpec.feature "Title", type: :feature do
 
   before { visit one_title_path(publisher.id, title.id) }
 
+  describe "#change_number" do
+    it "should add 1 book to the cart if arrow up is clicked" do
+      find(".add-to-cart-btn").click
+      visit cart_items_path()
+      find('.add-title').click
+      expect(page).not_to have_content(find('.remove-title')) # When only one book is in cart, you can't choose less
+      expect(find(".title-count")).to have_content(2)
+    end
+  end
+
   describe "#create" do
 
     it "should be in the cart if 'læg i kurv' is clicked" do
