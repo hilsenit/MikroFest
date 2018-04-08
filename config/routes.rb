@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  devise_for :publishers, path: 'forlag', controllers: { registrations: 'publishers/registrations', passwords: 'publishers/passwords' }
+  devise_for :publishers, path: 'forlag', controllers: { registrations: 'publishers/registrations', passwords: 'publishers/passwords', sessions: 'publishers/sessions'}
 
-  devise_for :users, path: 'brugere', controllers: { registrations: 'users/registrations', passwords: 'users/passwords' }
+  devise_for :users, path: 'brugere', controllers: { registrations: 'users/registrations', passwords: 'users/passwords', sessions: 'users/sessions', confirmations: 'users/confirmations'}
 
   resources :users
   get '/brugere/:user_id' => 'users#another_user', as: :another_user
