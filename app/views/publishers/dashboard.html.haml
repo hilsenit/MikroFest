@@ -1,1 +1,15 @@
 %h2 Dit Dashboard
+
+#mikrogramCreate.modal.active
+  %a.modal-overlay{"aria-label" => "Close", :href => "#close"}
+  .modal-container
+    .modal-header
+      %a.btn.btn-clear.float-right.js-clear-target{"aria-label" => "Close", :href => "#close", "data-target" => "mikrogramCreate"}
+      .modal-title.h5 Opret Mikrogram*
+    .modal-body
+      .content
+
+    .modal-footer.text-left.text-gray.small
+      *Et Mikrogram er en lille nyhed fra dit forlag, som højest må have en længde på 250 karakterer.<br> Derudover kan der kunne oprettes ét Mikrogram om ugen.
+
+= link_to "Opret Mikrogram"

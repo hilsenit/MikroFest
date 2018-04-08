@@ -15,16 +15,6 @@
 //= require rails-ujs
 //= require_tree .
 
-
-// function accordion() {
-//   var accs = document.querySelectorAll('accordion-header');
-//   Array.from(accs).forEach(function(acc) {
-//     acc.addEventListener('click', function() {
-      
-//     });
-//   });
-// }
-
 function setTabsSelectedDivs() {
   var tabs = document.querySelectorAll('.mikro-tabs');
   Array.from(tabs).forEach(function(tab) {
@@ -48,16 +38,37 @@ function setTabsSelectedDivs() {
   });
 }
 
-function closeParentWhenClicked() {
-  messages = document.querySelectorAll('.btn-clear');
-  Array.from(messages).forEach(function(msg) {
-    msg.addEventListener('click', function(e) {
+function openModal() {
+  modal_links = document.querySelectorAll('.js-modal-target');
+  Array.from(modal_links).forEach(function(modal_link) {
+    modal_link.addEventListener('click', function(e) {
       e.preventDefault();
-      parentDiv = msg.parentNode;
-      parentDiv.classList.add('d-none');
+      modal = document.getElementById(modal_link.dataset.target);
     });
   });
 }
 
+function closeTargetWhenClicked() {
+  targets = document.querySelectorAll('.js-clear-target');
+  Array.from(targets).forEach(function(mod) {
+    mod.addEventListener('click', function(e) {
+      e.preventDefault();
+      debugger;
+      target = document.getElementById(mod.dataset.target);
+      target.classList.add('d-none');
+    });
+  });
+}
+// function closeParentWhenClicked() {
+//   messages = document.querySelectorAll('.btn-clear');
+//   Array.from(messages).forEach(function(msg) {
+//     msg.addEventListener('click', function(e) {
+//       e.preventDefault();
+//       parentDiv = msg.parentNode;
+//       parentDiv.classList.add('d-none');
+//     });
+//   });
+// }
+
 window.addEventListener('load', setTabsSelectedDivs);
-window.addEventListener('load', closeParentWhenClicked);
+window.addEventListener('load', closeTargetWhenClicked);
