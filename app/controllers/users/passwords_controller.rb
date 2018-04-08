@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 class Users::PasswordsController < Devise::PasswordsController
+  included Accessible
   protected
-    def after_resetting_password_path_for(resource)
-      user_path(resource.id)
-    end
+
+  def after_resetting_password_path_for(resource)
+    user_path(resource.id)
+  end
 
   # GET /resource/password/new
   # def new

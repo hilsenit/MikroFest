@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  included Accessible
   protected
     def after_sign_up_path_for(resource)
       user_path(resource.id)

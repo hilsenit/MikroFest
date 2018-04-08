@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Publishers::PasswordsController < Devise::PasswordsController
+  included Accessible
   # GET /resource/password/new
   # def new
   #   super

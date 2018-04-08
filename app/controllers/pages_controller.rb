@@ -14,11 +14,12 @@ class PagesController < ApplicationController
   end
 
   def pages
+  end
 
+  def read_more
   end
 
 	def about
-
 	end
 
 	def publishers

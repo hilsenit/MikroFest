@@ -16,6 +16,14 @@
 //= require_tree .
 
 
+// function accordion() {
+//   var accs = document.querySelectorAll('accordion-header');
+//   Array.from(accs).forEach(function(acc) {
+//     acc.addEventListener('click', function() {
+      
+//     });
+//   });
+// }
 
 function setTabsSelectedDivs() {
   var tabs = document.querySelectorAll('.mikro-tabs');

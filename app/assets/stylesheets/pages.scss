@@ -19,3 +19,13 @@
 .navbar-section {
   justify-content: center;
 }
+
+.form-inputs {
+  label {
+    display: block; 
+    text-align: center;
+  }
+  input {
+    width: 100%;
+  }
+}

@@ -9,6 +9,11 @@
       - profile_menu_text = current_user.full_name.present? ? current_user.full_name : current_user_email_short_helper
       - icon = '<i class="icon icon-people"></i>'
       = link_to "#{icon} #{profile_menu_text}".html_safe, user_path(current_user.id), class: "btn btn-link"
+    - elsif publisher_signed_in?
+      - icon = '<i class="icon icon-bookmark"></i>'
+      = link_to "#{icon} #{current_publisher.name}".html_safe, pub_dashboard_path(current_publisher.id), class: "btn btn-link"
+      |
+      = link_to "Log ud", destroy_publisher_session_path(), method: :delete, class: "btn btn-link"
     - else
       = link_to "Opret bruger", new_user_path(), class: "btn btn-link"
       |

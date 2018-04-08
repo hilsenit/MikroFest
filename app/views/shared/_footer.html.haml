@@ -1,8 +1,20 @@
 %hr/
 %footer
-  %table
-    %td= link_to "Gå til admin", admin_path(), class: "button"
-    - if user_signed_in?
-      %td= link_to "Log ud", destroy_user_session_path(), method: :delete, class: "button"
-    - else
-      %td= link_to "Log ind", user_session_path(), class: "button"
+  .columns
+    .col-4.col-sm-12
+      -# = link_to "Gå til admin", admin_path(), class: "button"
+      - unless publisher_signed_in? 
+        .accordion
+          %input#accordion-4{:hidden => "", :name => "accordion-checkbox", :type => "checkbox"}/
+          %label.accordion-header.c-hand{:for => "accordion-4"}
+            Er du et forlag?
+          .accordion-body
+            %ul.menu.menu-nav
+              %li.menu-item
+                = link_to "Læs mere", pub_read_more_path()
+              %li.menu-item
+                = link_to "Log ind", new_publisher_session_path()
+
+    .col-4.col-sm-12
+      Vi er et 
+    .col-4.col-sm-12

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :publishers, path: 'forlag', controllers: { registrations: 'publishers/registrations', passwords: 'publishers/passwords', sessions: 'publishers/sessions'}
+  get ':id/dashboard' => 'publishers#dashboard', as: :pub_dashboard
 
   devise_for :users, path: 'brugere', controllers: { registrations: 'users/registrations', passwords: 'users/passwords', sessions: 'users/sessions', confirmations: 'users/confirmations'}
 
@@ -34,6 +35,7 @@ Rails.application.routes.draw do
 	get 'tak-for-dit-koeb' => 'charges#thanks', as: :thanks
 
 	# Pages (sider)
+  get '/forlag-laes-mere' => 'pages#read_more', as: :pub_read_more
 	get '/forlagene' => 'pages#publishers', as: :all_publishers
 	get '/forlaget/:id' => 'pages#publisher', as: :one_publisher
 	get '/alle-titler' => 'pages#titles', as: :all_titles

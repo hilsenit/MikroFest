@@ -1,5 +1,7 @@
 class PublishersController < ApplicationController
-	layout 'admin'
+	layout 'admin', except: [:dashboard]
+  layout 'application', only: [:dashboard]
+
 
 	def index
 		@publishers = Publisher.all
@@ -50,6 +52,9 @@ class PublishersController < ApplicationController
 			render :index
 		end
 	end
+
+  def dashboard
+  end
 
 	private
 
