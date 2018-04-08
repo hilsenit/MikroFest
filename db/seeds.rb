@@ -10,8 +10,11 @@ user_2.assign_customer_id
 user_2.skip_confirmation!
 user_2.save!
 
-  Publisher.create!(name: Faker::Lorem.sentence(3), description: Faker::Lorem.sentence(18), image: Rails.root.join('app/assets/images/test/publisher.jpg').open)
-  Publisher.create!(name: Faker::Lorem.sentence(3), description: Faker::Lorem.sentence(18), image: Rails.root.join('app/assets/images/test/london.jpg').open)
+  forlag_1 = Publisher.new(name: Faker::Lorem.sentence(3), description: Faker::Lorem.sentence(18), image: Rails.root.join('app/assets/images/test/publisher.jpg').open, email: 'forlag1@eksempel.dk', password: "hejmeddig")
+  forlag_1.save!
+
+  forlag_2 = Publisher.new(name: Faker::Lorem.sentence(3), description: Faker::Lorem.sentence(18), image: Rails.root.join('app/assets/images/test/london.jpg').open, email: 'forlag2@eksempel.dk', password: "hejmeddig" )
+  forlag_2.save!
 
 6.times do
   Title.create!(price: 132, title: Faker::Lorem.sentence(3), description: Faker::Lorem.sentence(10), publisher_id: Publisher.first.id, image: Rails.root.join('app/assets/images/test/title-2.jpg').open)
