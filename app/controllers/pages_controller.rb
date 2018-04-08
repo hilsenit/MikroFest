@@ -2,6 +2,7 @@ class PagesController < ApplicationController
 	# before_action :authenticate_user!, except: [:countdown]
 
 	def frontpage
+    @users = User.where.not(admin: true)
 	end
 
   def countdown

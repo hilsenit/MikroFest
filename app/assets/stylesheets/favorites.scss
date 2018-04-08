@@ -1,10 +1,5 @@
 @import 'imports/mixins';
 
-*, *:after, *:before {
-	box-sizing: inherit;
-}
-
-// variables
 $darktan: #9A8548;
 $grad2: #373737;
 $grad1: darken($grad2, 2);

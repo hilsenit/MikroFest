@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # Users
   devise_for :users, controllers: { registrations: 'users/registrations', passwords: 'users/passwords' }
   resources :users
+  get '/brugere/:user_id' => 'users#another_user', as: :another_user
 
   # News
   resources :news

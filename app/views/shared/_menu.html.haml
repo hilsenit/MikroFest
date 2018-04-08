@@ -11,3 +11,5 @@
       = link_to "#{icon} #{profile_menu_text}".html_safe, user_path(current_user.id), class: "btn btn-link"
     - else
       = link_to "Opret bruger", new_user_path(), class: "btn btn-link"
+      |
+      = link_to "Log ind", new_user_session_path(), class: "btn btn-link"

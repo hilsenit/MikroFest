@@ -1,0 +1,5 @@
+.bookshelf--frame
+  - favorites.each do |item|
+    .book-wrapper
+      = link_to one_title_path(item.title.publisher_id, item.title.id) do 
+        = image_tag item.title.image.thumb.url, class: "fav-image"

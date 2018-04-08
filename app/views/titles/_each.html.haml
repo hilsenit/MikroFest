@@ -1,5 +1,5 @@
 - without_publisher ||= false
-.column.col-xl-3.col-12
+.column.col-md-4.col-sm-12.col-3
   - unless without_publisher
     %p
       Af forlaget #{link_to each.publisher.name, one_publisher_path(each.publisher.friendly_id)}

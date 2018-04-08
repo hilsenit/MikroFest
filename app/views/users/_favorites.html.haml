@@ -23,24 +23,20 @@
       .empty-action
         %button.btn.btn-primary Læs mere om favoritter
 
-  .bookshelf--frame
-    - @user.favorites.each do |item|
-      .book-wrapper
-        = link_to one_title_path(item.title.publisher_id, item.title.id) do 
-          = image_tag item.title.image.thumb.url, class: "fav-image"
+  = render partial: 'shared/bookshelf', locals: { favorites: @user.favorites }
 
-    -# .book-wrapper
-    -#   %img{:alt => "A tall book", :height => "500", :src => "https://placeholdit.imgix.net/~text?txtsize=33&txt=a+tall+book&w=300&h=500", :width => "300"}/
-    -# .book-wrapper
-    -#   %img{:alt => "A normal book", :height => "350", :src => "https://placeholdit.imgix.net/~text?txtsize=33&txt=a+normal+book&w=250&h=350", :width => "250"}/
-    -# .book-wrapper
-    -#   %img{:alt => "A wide book", :height => "280", :src => "https://placeholdit.imgix.net/~text?txtsize=33&txt=a+wide+book&w=400&h=280", :width => "400"}/
-    -# .book-wrapper
-    -#   %img{:alt => "A normal book", :height => "350", :src => "https://placeholdit.imgix.net/~text?txtsize=33&txt=a+normal+book&w=250&h=350", :width => "250"}/
-    -# .book-wrapper
-    -#   %img{:alt => "A normal book", :height => "350", :src => "https://placeholdit.imgix.net/~text?txtsize=33&txt=a+normal+book&w=250&h=350", :width => "250"}/
-    -# .book-wrapper
-    -#   %img{:alt => "A tall book", :height => "500", :src => "https://placeholdit.imgix.net/~text?txtsize=33&txt=a+tall+book&w=300&h=500", :width => "300"}/
-    -# .book-wrapper
-    -#   %img{:alt => "A wide book", :height => "280", :src => "https://placeholdit.imgix.net/~text?txtsize=33&txt=a+wide+book&w=400&h=280", :width => "400"}/
+-# .book-wrapper
+-#   %img{:alt => "A tall book", :height => "500", :src => "https://placeholdit.imgix.net/~text?txtsize=33&txt=a+tall+book&w=300&h=500", :width => "300"}/
+-# .book-wrapper
+-#   %img{:alt => "A normal book", :height => "350", :src => "https://placeholdit.imgix.net/~text?txtsize=33&txt=a+normal+book&w=250&h=350", :width => "250"}/
+-# .book-wrapper
+-#   %img{:alt => "A wide book", :height => "280", :src => "https://placeholdit.imgix.net/~text?txtsize=33&txt=a+wide+book&w=400&h=280", :width => "400"}/
+-# .book-wrapper
+-#   %img{:alt => "A normal book", :height => "350", :src => "https://placeholdit.imgix.net/~text?txtsize=33&txt=a+normal+book&w=250&h=350", :width => "250"}/
+-# .book-wrapper
+-#   %img{:alt => "A normal book", :height => "350", :src => "https://placeholdit.imgix.net/~text?txtsize=33&txt=a+normal+book&w=250&h=350", :width => "250"}/
+-# .book-wrapper
+-#   %img{:alt => "A tall book", :height => "500", :src => "https://placeholdit.imgix.net/~text?txtsize=33&txt=a+tall+book&w=300&h=500", :width => "300"}/
+-# .book-wrapper
+-#   %img{:alt => "A wide book", :height => "280", :src => "https://placeholdit.imgix.net/~text?txtsize=33&txt=a+wide+book&w=400&h=280", :width => "400"}/
 

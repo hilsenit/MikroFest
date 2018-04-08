@@ -5,7 +5,7 @@ user.assign_customer_id
 user.skip_confirmation!
 user.save!
 
-user_2 = User.new(email: "hejmeddig@eksempel.dk", password: "hejmeddig", full_name: "Arhh Captain Lorem", address: Faker::Address.street_address, favorite_word: "Ballon")
+user_2 = User.new(email: "hejmeddig@eksempel.dk", password: "hejmeddig", full_name: "Benny Andersen", address: Faker::Address.street_address, favorite_word: "Ballon")
 user_2.assign_customer_id
 user_2.skip_confirmation!
 user_2.save!

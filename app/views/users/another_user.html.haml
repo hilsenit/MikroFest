@@ -1,0 +1,7 @@
+%h1.text-center= @user.full_name
+- if @favorites.any?
+  %h2 Favoritter
+  = render partial: 'shared/bookshelf', locals: { favorites: @favorites }
+- else
+  %kbd.text-center Har ingen favoritter endnu
+  = current_user

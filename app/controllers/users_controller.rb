@@ -1,11 +1,20 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :create]
+  before_action :authenticate_user!, except: [:new, :create, :show, :another_user]
   layout 'admin', only: :index
 
   def show
-    @user = current_user
-    # should be called with ajax - somehow! To slow as it is now!
-    @orders = Stripe::Charge.list(customer: @user.customer_id)
+    @user = User.friendly.find(params[:id])
+    if @user == current_user && user_signed_in?
+      # should be called with ajax - somehow! To slow as it is now!
+      @orders = Stripe::Charge.list(customer: @user.customer_id)
+    else
+      redirect_to another_user_path(@user.id) # The current user should see a normal page with the users info
+    end
+  end
+
+  def another_user
+    @user = User.friendly.find(params[:user_id])
+    @favorites = @user.favorites
   end
 
   def new
@@ -31,7 +40,6 @@ class UsersController < ApplicationController
   end
 
   private
-
 
   def user_params
     params.require(:user).permit(:full_name, :email, :address, :password, :favorite_word)
