@@ -49,8 +49,7 @@ RSpec.feature "Title", type: :feature do
       visit cart_items_path()
       find(".delete-cart-item-btn").click
       within(:css, "table") do # The notice message is shown with the title
-        expect(page).not_to have_content(title.title)
-        expect(page).not_to have_content(publisher.name)
+        expect(page).not_to have_css('table')
       end
     end
 
