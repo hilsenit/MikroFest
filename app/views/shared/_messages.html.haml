@@ -1,11 +1,11 @@
 - if notice.present?
   .toast.toast-success.text-center
-    %button.btn.btn-clear.float-right
+    %button.btn.btn-clear.float-right.js-clear-parent
     = notice.html_safe
 - if alert.present?
   .toast.toast-warnings.text-center
-    %button.btn.btn-clear.float-right
+    %button.btn.btn-clear.float-right.js-clear-parent
     = alert.html_safe
 .js-message.text-center.d-none
-  %button.btn.btn-clear.float-right
+  %button.btn.btn-clear.float-right.js-clear-parent
   

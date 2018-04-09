@@ -29,7 +29,6 @@ function setTabsSelectedDivs() {
       other_divs = document.querySelectorAll('.tabs-divs');
       Array.from(other_divs).forEach(function(o_div) { o_div.classList.add('d-none'); });
       // Open target div
-      debugger;
       open_div_class = tab.dataset.target;
       open_div = document.getElementsByClassName(open_div_class)[0];
       open_div.classList.remove('d-none');
@@ -60,6 +59,17 @@ function closeModalWhenClicked() {
   });
 }
 
+function removeParent() {
+  buttons = document.querySelectorAll('.js-clear-parent');
+  Array.from(buttons).forEach(function(but) {
+    but.addEventListener('click', function(e) {
+      e.preventDefault();
+      debugger;
+      but.parentElement.classList.add('d-none');
+    });
+  });
+}
+
 function closeTargetWhenClicked() {
   targets = document.querySelectorAll('.js-clear-target');
   Array.from(targets).forEach(function(mod) {
@@ -76,4 +86,5 @@ window.addEventListener('load', function() {
   closeTargetWhenClicked();
   openModalWhenClicked();
   closeModalWhenClicked();
+  removeParent();
 });

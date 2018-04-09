@@ -7,7 +7,8 @@ class MikrogramsController < ApplicationController
     if @mikrogram.save
       redirect_to publishers_mikrogram_path
     else
-      byebug
+      @publisher = @mikrogram.publisher
+      render 'publishers/dashboard', open: "true"
     end
   end
 

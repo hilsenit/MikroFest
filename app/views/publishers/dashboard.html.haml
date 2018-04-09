@@ -5,7 +5,7 @@
     %a.js-modal-target.btn-clear.c-pointer.float-right{"data-target" => "mikrogramCreate"} Opret Mikrogram
 
 
-#mikrogramCreate.modal
+#mikrogramCreate.modal{:class => "#{open_if_param_helper params, 'active'}"}
   %a.modal-overlay{"aria-label" => "Close", :href => "#close"}
   .modal-container
     .modal-header
@@ -14,6 +14,11 @@
     .modal-body
       .content
         = form_for @mikrogram, url: publisher_mikrograms_path(@publisher), class: "form form-horizontal" do |f|
+          - if @mikrogram.errors.any?
+            - @mikrogram.errors.full_messages.each do |err|
+              .toast-warning.toast.text-center.mb-2
+                .btn.btn-clear.float-right.js-clear-parent 
+                = err
           .form-group
             .col-12
               = f.text_field :title, class: "form-input", placeholder: "Titel"
