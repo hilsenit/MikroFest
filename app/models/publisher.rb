@@ -13,6 +13,7 @@ class Publisher < ApplicationRecord
 	validates_presence_of :name, :slug
 
 	has_many :titles
+  has_many :mikrograms
 
   def maybe_you_would_like title_id, number_of_titles=4
     titles.where.not(id: title_id).limit(number_of_titles)

@@ -1,16 +1,27 @@
 %h2 Dit Dashboard
 
-#mikrogramCreate.modal.active
+.columns
+  .column.col-12
+    %a.js-modal-target.btn-clear.c-pointer.float-right{"data-target" => "mikrogramCreate"} Opret Mikrogram
+
+
+#mikrogramCreate.modal
   %a.modal-overlay{"aria-label" => "Close", :href => "#close"}
   .modal-container
     .modal-header
-      %a.btn.btn-clear.float-right.js-clear-target{"aria-label" => "Close", :href => "#close", "data-target" => "mikrogramCreate"}
+      %a.btn.btn-clear.float-right.js-clear-modal{"aria-label" => "Close", :href => "#close", "data-target" => "mikrogramCreate"}
       .modal-title.h5 Opret Mikrogram*
     .modal-body
       .content
+        = form_for @mikrogram, url: publisher_mikrograms_path(@publisher), class: "form form-horizontal" do |f|
+          .form-group
+            .col-12
+              = f.text_field :title, class: "form-input", placeholder: "Titel"
+              -# %input#input-example-4.form-input{:autocomplete => "off", :placeholder => "Titel", :type => 'text'}
+          .form-group
+            .col-12
+              = f.text_area :description, class: "form-input", placeholder: "Tekst"
+          = f.submit "Udgiv!", class: "btn btn-secondary"
         
-
     .modal-footer.text-left.text-gray.small
-      *Et Mikrogram er en lille nyhed fra dit forlag, som højest må have en længde på 250 karakterer.<br> Derudover kan der kunne oprettes ét Mikrogram om ugen.
-
-= link_to "Opret Mikrogram"
+      *Et Mikrogram er en lille nyhed fra dit forlag, som højest må have en længde på 250 karakterer.<br> Derudover kan der kun oprettes ét Mikrogram om ugen. Du kan ikke opdatere eller ændre i et Mikrogram efter at du har udgivet det!

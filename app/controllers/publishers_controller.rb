@@ -54,6 +54,8 @@ class PublishersController < ApplicationController
 	end
 
   def dashboard
+    @publisher = Publisher.friendly.find(params[:id])
+    @mikrogram = @publisher.mikrograms.build
   end
 
 	private

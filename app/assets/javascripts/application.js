@@ -38,12 +38,24 @@ function setTabsSelectedDivs() {
   });
 }
 
-function openModal() {
+function openModalWhenClicked() {
   modal_links = document.querySelectorAll('.js-modal-target');
   Array.from(modal_links).forEach(function(modal_link) {
     modal_link.addEventListener('click', function(e) {
       e.preventDefault();
       modal = document.getElementById(modal_link.dataset.target);
+      modal.classList.add('active');
+    });
+  });
+}
+
+function closeModalWhenClicked() {
+  targets = document.querySelectorAll('.js-clear-modal');
+  Array.from(targets).forEach(function(mod) {
+    mod.addEventListener('click', function(e) {
+      e.preventDefault();
+      target = document.getElementById(mod.dataset.target);
+      target.classList.remove('active');
     });
   });
 }
@@ -53,22 +65,15 @@ function closeTargetWhenClicked() {
   Array.from(targets).forEach(function(mod) {
     mod.addEventListener('click', function(e) {
       e.preventDefault();
-      debugger;
       target = document.getElementById(mod.dataset.target);
       target.classList.add('d-none');
     });
   });
 }
-// function closeParentWhenClicked() {
-//   messages = document.querySelectorAll('.btn-clear');
-//   Array.from(messages).forEach(function(msg) {
-//     msg.addEventListener('click', function(e) {
-//       e.preventDefault();
-//       parentDiv = msg.parentNode;
-//       parentDiv.classList.add('d-none');
-//     });
-//   });
-// }
 
-window.addEventListener('load', setTabsSelectedDivs);
-window.addEventListener('load', closeTargetWhenClicked);
+window.addEventListener('load', function() {
+  setTabsSelectedDivs();
+  closeTargetWhenClicked();
+  openModalWhenClicked();
+  closeModalWhenClicked();
+});

@@ -48,9 +48,7 @@ RSpec.feature "Title", type: :feature do
       find(".add-to-cart-btn").click
       visit cart_items_path()
       find(".delete-cart-item-btn").click
-      within(:css, "table") do # The notice message is shown with the title
-        expect(page).not_to have_css('table')
-      end
+      expect(page).not_to have_css('table')
     end
 
   end

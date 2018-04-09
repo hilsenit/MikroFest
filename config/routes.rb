@@ -11,9 +11,12 @@ Rails.application.routes.draw do
   # News
   resources :news
 
+  # Mikrograms
+
   # Books an publishers
   resources :publishers do
 		resources :titles
+    resources :mikrograms, except: [:new, :edit]
 	end
 
   # Cart and checkout
