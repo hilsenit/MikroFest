@@ -11,8 +11,6 @@ Rails.application.routes.draw do
   # News
   resources :news
 
-
-
   # Books an publishers
   resources :publishers do
 		resources :titles
