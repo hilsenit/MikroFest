@@ -1,0 +1,27 @@
+- colors = [["#C6C5B9", "white"], ["#62929E", "white"], ["#4A6D7C", "white"], ["#393A10", "white"]]
+.columns 
+  .col-md-4.col-mx-auto
+    %span.popover.popover-top
+      %h2.c-pointer{:style => "background-color: white; color: black; display: inline-block"} Mikrogram ?
+      .popover-container
+        .card
+          .card-body
+            Et Mikrogram er en ugentlig udfordring til hvert forlag.
+
+.columns
+  - @mikrograms.each do |mikro|
+    - color = colors.sample
+    .column.col-3.col-xs-12
+      .card{:style => "background-color: #{color[0]}"}
+        .card-header
+          .card-title.h5.small{:style => "color: #{color[1]}"}= mikro.title
+        .card-body{:style => "color: #{color[1]}"}
+          = mikro.description
+        .card-footer
+          .card-subtitle.text-gray.text-center.small{:style => "color: #{color[1]}"} Skrevet af forlaget #{link_to mikro.publisher.name, one_publisher_path(mikro.publisher.friendly_id)}
+
+
+
+        
+       
+

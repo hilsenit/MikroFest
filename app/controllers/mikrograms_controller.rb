@@ -5,7 +5,7 @@ class MikrogramsController < ApplicationController
     @mikrogram = Mikrogram.new(mikrograms_params)
     @mikrogram.publisher = current_publisher
     if @mikrogram.save
-      redirect_to publisher_mikrograms_path
+      redirect_to publishers_mikrogram_path
     else
       byebug
     end

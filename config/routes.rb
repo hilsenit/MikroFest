@@ -11,13 +11,14 @@ Rails.application.routes.draw do
   # News
   resources :news
 
-  # Mikrograms
+
 
   # Books an publishers
   resources :publishers do
 		resources :titles
-    resources :mikrograms, except: [:new, :edit]
+    resources :mikrograms, except: [:new, :edit, :index]
 	end
+  get 'alle-mikrogram' => 'mikrograms#index', as: :publishers_mikrogram
 
   # Cart and checkout
   resources :cart_items
