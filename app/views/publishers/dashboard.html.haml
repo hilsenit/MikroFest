@@ -5,7 +5,7 @@
     %a.js-modal-target.btn-clear.c-pointer.float-right{"data-target" => "mikrogramCreate"} Opret Mikrogram
 
 
-#mikrogramCreate.modal{:class => "#{open_if_param_helper params, 'active'}"}
+#mikrogramCreate.modal{:class => "#{'active' unless @open_modal.nil?}"}
   %a.modal-overlay{"aria-label" => "Close", :href => "#close"}
   .modal-container
     .modal-header
