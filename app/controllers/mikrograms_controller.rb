@@ -1,5 +1,5 @@
 class MikrogramsController < ApplicationController
-  before_action :authenticate_publisher!
+  before_action :authenticate_publisher!, except: [:index]
 
   def create
     @mikrogram = Mikrogram.new(mikrograms_params)

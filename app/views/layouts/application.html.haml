@@ -1,4 +1,3 @@
-!!!
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
@@ -10,10 +9,10 @@
     = javascript_include_tag 'application'
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
   %body
-    = render partial: 'shared/header'
-    .container.grid-lg
+    %section.container.grid-lg
+      = render partial: 'shared/header'
       = render partial: 'shared/menu'
       = render partial: 'shared/messages'
       .content-wrapper
         = yield
-      = render partial: 'shared/footer'
+    %footer= render partial: 'shared/footer'

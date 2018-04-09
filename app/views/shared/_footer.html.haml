@@ -1,22 +1,15 @@
-%hr/
-%footer
-  .columns
-    .col-4.col-sm-12
-      -# = link_to "Gå til admin", admin_path(), class: "button"
-      - unless publisher_signed_in? 
-        .accordion
-          %input#accordion-4{:hidden => "", :name => "accordion-checkbox", :type => "checkbox"}/
-          %label.accordion-header.c-hand{:for => "accordion-4"}
-            Har du et forlag?
-          .accordion-body
-            %ul.menu.menu-nav
-              %li.menu-item
-                = link_to "Læs mere", pub_read_more_path()
-              %li.menu-item
-                = link_to "Log ind", new_publisher_session_path()
+.columns
+  .column.col-4.col-mx-auto.text-center
+    -# = link_to "Gå til admin", admin_path(), class: "button"
+    - unless publisher_signed_in? 
+      .accordion
+        %input#accordion-4{:hidden => "", :name => "accordion-checkbox", :type => "checkbox"}/
+        %label.accordion-header.c-hand{:for => "accordion-4"}
+          Har du et forlag?
+        .accordion-body
+          %ul.menu.menu-nav
+            %li.menu-item
+              = link_to "Læs mere", pub_read_more_path()
+            %li.menu-item
+              = link_to "Log ind", new_publisher_session_path()
 
-    .col-4.col-sm-12 
-      Consequat leo et dui. Aenean ligula mi, dignissim ut, imperdiet tristique, interdum a, dolor. 
-      
-    .col-4.col-sm-12
-      Kontakt

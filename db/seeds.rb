@@ -30,5 +30,12 @@ end
 end
 
 Favorite.create!(user_id: User.first.id, title_id: Title.last.id)
+Favorite.create!(user_id: User.last.id, title_id: Title.last.id)
+Favorite.create!(user_id: User.last.id, title_id: Title.first.id)
+
+Mikrogram.create!(publisher_id: Publisher.last.id, title: "Man skal ikke kaste med sten, når man selv bor i et glashus", description: Faker::Lorem.sentence(5))
+Mikrogram.create!(publisher_id: Publisher.first.id, title: "Hvorfor bugter vejen sådan?", description: Faker::Lorem.sentence(5))
+
+Mikrogram.create!(publisher_id: Publisher.first.id, title: "Der var engang en, der gjorde noget godt", description: Faker::Lorem.sentence(7))
 
 puts "#{User.count} user created - #{Publisher.count} publishers created - #{Title.count} titles created - #{Review.count} reviews created - #{Favorite.count} favorites created"

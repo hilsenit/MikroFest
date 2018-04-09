@@ -11,14 +11,14 @@
 .columns
   - @mikrograms.each do |mikro|
     - color = colors.sample
-    .column.col-3.col-xs-12
+    .column.col-3.col-xs-12.mb-4
       .card{:style => "background-color: #{color[0]}"}
         .card-header
           .card-title.h5.small{:style => "color: #{color[1]}"}= mikro.title
         .card-body{:style => "color: #{color[1]}"}
           = mikro.description
         .card-footer
-          .card-subtitle.text-gray.text-center.small{:style => "color: #{color[1]}"} Skrevet af forlaget #{link_to mikro.publisher.name, one_publisher_path(mikro.publisher.friendly_id)}
+          .card-subtitle.text-gray.text-center.small{:style => "color: #{color[1]}"}= link_to mikro.publisher.name, one_publisher_path(mikro.publisher.friendly_id)
 
 
 
