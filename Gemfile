@@ -55,4 +55,5 @@ gem 'simple_form'
 gem 'stripe_event'
 gem 'tinymce-rails'
 
+gem 'kaminari'
 

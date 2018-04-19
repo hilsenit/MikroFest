@@ -1,0 +1,20 @@
+.columns.background-image-bookshelf
+  .card.login-card
+    .card-header
+      .card-title.text-center.small= link_to "&#8592; Tilbage".html_safe, :back
+      .card-title.h5.text-center Dit brugerlogin
+      .card-subtitle.text-gray.text-center Velkommen til Mikrofest
+    .card-body
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .form-inputs
+          = f.input :email, required: true, autofocus: true, input_html: { maxlength: "100%" }
+          = f.input :password, required: true, input_html: { maxlength: "100%" }
+          %label.form-switch.text-center
+            %input{type: "checkbox"}/
+            %i.form-icon
+            .remember-me Husk mig
+            = f.check_box :remember_me, as: :boolean if devise_mapping.rememberable?
+        .form-actions
+          = f.button :submit, "Log in", class: "btn btn-primary"
+    .card-footer
+      = render "users/shared/links"

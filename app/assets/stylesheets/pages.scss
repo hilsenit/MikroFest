@@ -1,4 +1,6 @@
 @import 'imports/transitions';
+@import 'imports/mixins';
+
 
 html {
   height: 100%;
@@ -48,3 +50,29 @@ footer {
     width: 100%;
   }
 }
+
+.background-image-bookshelf {
+  @include flex;
+  @include align-items(center);
+  @include justify-content(center);
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(asset-path("bookcase.jpg"));
+  z-index: 9;
+
+  .login-card {
+    width: 40%;
+    height: auto!important;
+    max-width: 320px;
+
+  }
+}
+// @media screen and (max-width: $breakpoints('tablet')) {
+//   .login-card {
+//     width: auto;
+//     max-width: 90%;
+//   }
+// }

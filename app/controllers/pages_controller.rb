@@ -32,7 +32,7 @@ class PagesController < ApplicationController
 	end
 
 	def titles
-		@titles = Title.all
+		@titles = Title.page params[:page]
 	end
 
 	def title

@@ -6,7 +6,7 @@
       .popover-container
         .card
           .card-body
-            Et Mikrogram er en ugentlig udfordring til hvert forlag.
+            Et Mikrogram er en ugentlig nyhed fra hvert forlag.
 
 .columns
   - @mikrograms.each do |mikro|
@@ -18,7 +18,8 @@
         .card-body{:style => "color: #{color[1]}"}
           = mikro.description
         .card-footer
-          .card-subtitle.text-gray.text-center.small{:style => "color: #{color[1]}"}= link_to mikro.publisher.name, one_publisher_path(mikro.publisher.friendly_id)
+          .card-subtitle.text-gray.text-center.small 
+            = link_to mikro.publisher.name, one_publisher_path(mikro.publisher.friendly_id), style: "color: #{color[1]}"
 
 
 

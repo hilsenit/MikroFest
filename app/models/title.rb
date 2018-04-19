@@ -2,6 +2,7 @@ class Title < ApplicationRecord
   mount_uploader :image, TitleImageUploader
 	extend FriendlyId
 	friendly_id :title, use: :slugged
+  paginates_per 12
 
 	validates_presence_of :title, :slug
   validates_presence_of :price, numericality: { greater_than: 0 }
