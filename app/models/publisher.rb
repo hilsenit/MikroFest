@@ -10,6 +10,8 @@ class Publisher < ApplicationRecord
 
 	friendly_id :name, use: :slugged
 
+  paginates_per 12
+
 	validates_presence_of :name, :slug
 
 	has_many :titles

@@ -1,3 +1,5 @@
 %h3.text-center Alle forlag
 .columns.publisher-each-wrapper
   = render partial: 'publishers/each', collection: @publishers if @publishers.any?
+
+= render partial: "shared/pagination", locals: {records: @publishers} if @publishers.any? 

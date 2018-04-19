@@ -1,3 +1,12 @@
+$break-phone:        400px;
+$break-phone-wide:   480px;
+$break-phablet:      560px;
+$break-tablet-small: 640px;
+$break-tablet:       768px;
+$break-tablet-wide:  1024px;
+$break-desktop:      1248px;
+$break-desktop-wide: 1440px;
+
 @mixin flex {
   display: -webkit-flex;
   display: flex;

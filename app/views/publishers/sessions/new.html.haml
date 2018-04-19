@@ -1,8 +1,8 @@
-.columns.background-image.bookcase-image
+.columns.background-image.publisher-image
   .card.login-card
     .card-header
       .card-title.text-center.small= link_to "&#8592; Tilbage".html_safe, :back
-      .card-title.h5.text-center Dit brugerlogin
+      .card-title.h5.text-center Dit forlagslogin
       .card-subtitle.text-gray.text-center Velkommen til Mikrofest
     .card-body
       = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
@@ -17,4 +17,7 @@
         .form-actions
           = f.button :submit, "Log in", class: "btn btn-primary"
     .card-footer
-      = render "users/shared/links"
+      = render "publishers/shared/links"
+      = link_to "Læs mere", pub_read_more_path()
+
+

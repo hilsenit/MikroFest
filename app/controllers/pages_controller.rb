@@ -23,7 +23,7 @@ class PagesController < ApplicationController
 	end
 
 	def publishers
-		@publishers = Publisher.all
+		@publishers = Publisher.page params[:page]
 	end
 
 	def publisher

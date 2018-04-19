@@ -11,6 +11,7 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 section {
   flex: 1 0 auto;
 }
@@ -20,6 +21,10 @@ footer {
   padding-top: 20px;
   padding-bottom: 20px;
 
+}
+
+.content-wrapper {
+  margin-bottom: 100px;
 }
 .headline {
   text-transform: uppercase;
@@ -51,7 +56,14 @@ footer {
   }
 }
 
-.background-image-bookshelf {
+.bookcase-image {
+  background-image: url(asset-path("bookcase.jpg"));
+}
+.publisher-image {
+  background-image: url(asset-path("publisher.jpg")); 
+}
+
+.background-image {
   @include flex;
   @include align-items(center);
   @include justify-content(center);
@@ -60,19 +72,15 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url(asset-path("bookcase.jpg"));
   z-index: 9;
 
   .login-card {
     width: 40%;
     height: auto!important;
     max-width: 320px;
-
+    @media screen and (max-width: $break-phablet) {
+      width: auto;
+      max-width: 90%;
+    }
   }
 }
-// @media screen and (max-width: $breakpoints('tablet')) {
-//   .login-card {
-//     width: auto;
-//     max-width: 90%;
-//   }
-// }

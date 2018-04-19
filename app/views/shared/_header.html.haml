@@ -1,6 +1,6 @@
 %body
   %header
     .row
-      = link_to forside_path() do
-        %h1.headline.text-center Mikrofest
+      = link_to forside_path(), class: "text-center d-block" do
+        = image_tag "mikrofest-logo", class: "d-inline-block"
       %h2.headline-sub.text-center.f-small Store bøger fra små forlag

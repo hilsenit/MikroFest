@@ -2,8 +2,4 @@
 .columns.title-each-wrapper
   = render partial: 'titles/each', collection: @titles if @titles.any?
 
-.columns.mt-4
-  .col-12.col-sm-6
-    = link_to_previous_page @titles, "&#8592; Forrige side".html_safe, class: "float-left"
-  .col-12.col-sm-6
-    = link_to_next_page @titles, "Næste side &#8594;".html_safe, class: "float-right"
+= render partial: "shared/pagination", locals: {records: @titles} if @titles.any? 
