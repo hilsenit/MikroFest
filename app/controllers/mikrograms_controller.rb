@@ -9,8 +9,8 @@ class MikrogramsController < ApplicationController
       redirect_to publishers_mikrogram_path
     else
       @publisher = @mikrogram.publisher
-      @open_modal = "true"
-      render 'publishers/dashboard', open: "true"
+      @open_modal = "true" # To keep the modal open when rendering
+      render 'publishers/dashboard'
     end
   end
 

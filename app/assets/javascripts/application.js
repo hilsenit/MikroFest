@@ -63,8 +63,8 @@ function removeParent() {
   buttons = document.querySelectorAll('.js-clear-parent');
   Array.from(buttons).forEach(function(but) {
     but.addEventListener('click', function(e) {
-      e.preventDefault();
       debugger;
+      e.preventDefault();
       but.parentElement.classList.add('d-none');
     });
   });

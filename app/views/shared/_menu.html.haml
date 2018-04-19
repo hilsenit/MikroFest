@@ -14,7 +14,7 @@
       = link_to "Log ud", destroy_user_session_path(), method: :delete, class: "btn btn-link"
     - elsif publisher_signed_in?
       - icon = '<i class="icon icon-bookmark"></i>'
-      = link_to "#{icon} #{current_publisher.name}".html_safe, pub_dashboard_path(current_publisher.id), class: "btn btn-link"
+      = link_to "#{icon} #{truncate(current_publisher.name, length: 30)}".html_safe, pub_dashboard_path(current_publisher.id), class: "btn btn-link"
       |
       = link_to "Log ud", destroy_publisher_session_path(), method: :delete, class: "btn btn-link"
     - else

@@ -1,5 +1,5 @@
-.row
-  .eight.columns
+.columns
+  .col-12
     Elit quidem nemo similique vero eius In id earum adipisci officia hic, quidem, est reprehenderit quisquam? Alias iste natus odit quaerat officia laboriosam. Cum qui corporis iste optio quae aut?
     Elit quidem nemo similique vero eius In id earum adipisci officia hic, quidem, est reprehenderit quisquam? Alias iste natus odit quaerat officia laboriosam. Cum qui corporis iste optio quae aut?
     Elit quidem nemo similique vero eius In id earum adipisci officia hic, quidem, est reprehenderit quisquam? Alias iste natus odit quaerat officia laboriosam. Cum qui corporis iste optio quae aut?
@@ -7,8 +7,9 @@
     Elit quidem nemo similique vero eius In id earum adipisci officia hic, quidem, est reprehenderit quisquam? Alias iste natus odit quaerat officia laboriosam. Cum qui corporis iste optio quae aut?
     Elit quidem nemo similique vero eius In id earum adipisci officia hic, quidem, est reprehenderit quisquam? Alias iste natus odit quaerat officia laboriosam. Cum qui corporis iste optio quae aut?
 
-.row 
-  - if @users.any? 
-    %h2 Brugere
-    - @users.each do |user| 
-      = link_to user.full_name, user_path(user.friendly_id) 
+.columns
+  .col-12
+    - if @users.any? 
+      %h2 Brugere
+      - @users.each do |user| 
+        = link_to user.full_name, user_path(user.friendly_id) 

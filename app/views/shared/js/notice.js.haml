@@ -2,6 +2,6 @@
   div = document.getElementsByClassName('js-message')[0];
   div.classList.remove('d-none');
   div.classList.add('toast', 'toast-success');
-  button = "<button class='btn btn-clear float-right'></button>"
-  div.innerHTML = button + '#{@message.html_safe}';
+  text_div = document.getElementsByClassName('js-text-field')[0];
+  text_div.innerHTML = '#{@message.html_safe}';
 
