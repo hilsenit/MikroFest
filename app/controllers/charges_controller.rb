@@ -5,6 +5,7 @@ class ChargesController < ApplicationController
 	layout 'application'
 
   def create
+
     @title = @cart.cart_items.first.title
     begin
       stripe_card_id =

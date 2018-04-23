@@ -32,6 +32,10 @@
     .empty-action
       = link_to "Se alle bøger", all_titles_path(), class: "btn btn-primary"
 
+- if @cart_items.any? 
+  %h3.text-center Samlet pris: #{pretty_amount_helper(@cart.get_full_price)}
+  - byebug
+
 %hr 
 
 = link_to "Gå til Checkout &#8594;".html_safe, checkout_path(), class: "btn btn-primary go-to-checkout-btn float-right" if @cart_items.any?
