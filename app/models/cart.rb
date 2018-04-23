@@ -19,11 +19,8 @@ class Cart < ApplicationRecord
   end
 
   def get_full_price
-    self.full_price = 0
-    self.cart_items.each do |itm|
-      self.full_price += (itm.quantity * itm.title.price)
-    end
-    self.full_price
+    raise "Der er ingen titler i kurven" if self.cart_items.empty?
+    self.full_price = self.cart_items.sum {|ci| ci.quantity * ci.title.price }
   end
 
 end

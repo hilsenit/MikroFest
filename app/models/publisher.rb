@@ -5,11 +5,8 @@ class Publisher < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   mount_uploader :image, PublisherCoverUploader
-
 	extend FriendlyId
-
 	friendly_id :name, use: :slugged
-
   paginates_per 12
 
 	validates_presence_of :name, :slug
