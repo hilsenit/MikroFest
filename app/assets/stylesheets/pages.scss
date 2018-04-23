@@ -63,6 +63,12 @@ footer {
   background-image: url(asset-path("publisher.jpg")); 
 }
 
+
+.v-hidden {
+  visibility: hidden!important;
+}
+
+
 .background-image {
   @include flex;
   @include align-items(center);
