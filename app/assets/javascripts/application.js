@@ -14,6 +14,13 @@
 //= require cocoon
 //= require rails-ujs
 //= require_tree .
+//
+
+
+function imageFadeInOnLoad() {
+  //Opacity should be set to 0 for this to function
+  $(".js-image-fade-in").animate({opacity: 1}, 1000);
+}
 
 function setTabsSelectedDivs() {
   var tabs = document.querySelectorAll('.mikro-tabs');
@@ -85,5 +92,6 @@ window.addEventListener('load', function() {
   closeTargetWhenClicked();
   openModalWhenClicked();
   closeModalWhenClicked();
+  imageFadeInOnLoad();
   removeParent();
 });
