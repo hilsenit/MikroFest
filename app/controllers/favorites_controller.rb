@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationController
-  include ErrorMessages
+  include Messages
   before_action :authenticate_user!, except: [:create]
 
   def create

@@ -1,24 +1,21 @@
 class ChargesController < ApplicationController
   before_action :authenticate_user!
   # before_action :find_title // Removed while i'm creating the new checkout
-
 	layout 'application'
 
-  def create
+  def create #Can't use it when not logged in yet
+    is_cart_created? # generates @cart
 
-    @title = @cart.cart_items.first.title
     begin
-      stripe_card_id =
-        if params[:credit_card].present?
-          CreditCardService.new(current_user.id, card_params).create_credit_card
-        else
-          charge_params[:card_id]
-        end
+      byebug
+      stripe_card_id = params[:credit_card].present? ?
+        CreditCardService.new(current_user.id, card_params).create_credit_card :
+        charge_params[:card_id]
 
       Stripe::Charge.create(
         customer: current_user.customer_id,
         source:   stripe_card_id,
-        amount:   @title.price_in_dkk,
+        amount:   @cart.get_full_price * 100, # Stripe
         currency: 'dkk'
       )
 
@@ -26,29 +23,36 @@ class ChargesController < ApplicationController
         current_user.credit_cards.create_with(card_params).find_or_create_by(stripe_id: stripe_card_id)
       end
 
-      flash[:notice] = "Din betaling er gået igennem. Vi vil inden længe sende dig en bekræftelsesemail, hvor du kan se din ordre. Vi vil gerne sige tak for din støtte til de små forlag!"
+      flash[:notice] = "You did it!"
+      # Delete cart
       redirect_to user_path(current_user, profile: "purchases")
 
     rescue Stripe::CardError => e
       flash[:alert] = e.message
-      redirect_to one_title_path(@title.publisher.id, @title.id)
+      redirect_to checkout_path()
     end
   end
 
   private
 
+  def is_cart_created?
+    @cart = Cart.find(session[:cart_id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_path, notice: "Du bliver nødt til at lægge noget i din kurv for at kunne gå til checkout"
+  end
+
   def card_params
-    params.require(:credit_card).permit(:number, :month, :year, :cvc)
+    params.require(:credit_card).permit(:number, :exp_month, :exp_year, :cvc)
   end
 
   def charge_params
     params.require(:charge).permit(:card_id)
   end
 
-  def find_title
-    @title = Title.find(params[:title_id])
-  rescue ActiveRecord::RecordNotFound => e
-    flash[:alert] = 'Bogen findes ikke'
-    redirect_to root_path
-  end
+  # def find_title
+  #   @title = Title.find(params[:title_id])
+  # rescue ActiveRecord::RecordNotFound => e
+  #   flash[:alert] = 'Bogen findes ikke'
+  #   redirect_to root_path
+  # end
 end

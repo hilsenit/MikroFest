@@ -13,8 +13,8 @@ class CreditCardService
     Stripe::Token.create(
       card: {
         number: @card[:number],
-        exp_month: @card[:month],
-        exp_year: @card[:year],
+        exp_month: @card[:exp_month],
+        exp_year: @card[:exp_year],
         cvc: @card[:cvc]
       }
     ).id

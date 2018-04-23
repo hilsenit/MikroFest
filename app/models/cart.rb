@@ -1,5 +1,5 @@
 class Cart < ApplicationRecord
-  has_many :cart_items
+  has_many :cart_items, dependent: :destroy
   attr_accessor :full_price
 
   def add_product(cart_item)
@@ -19,6 +19,7 @@ class Cart < ApplicationRecord
   end
 
   def get_full_price
+    # Skal det være en Expeption.new? Undersøg
     raise "Der er ingen titler i kurven" if self.cart_items.empty?
     self.full_price = self.cart_items.sum {|ci| ci.quantity * ci.title.price }
   end
