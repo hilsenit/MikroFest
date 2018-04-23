@@ -1,0 +1,27 @@
+%li.product-detail-list-item
+  .product-detail-list-item-price-info
+    %p.product-detail-list-item-total-price
+      I alt:
+    %span#entry_new_price.ng-binding=pretty_amount_helper(item.get_titles_price)
+  .product-detail-list-item-image-wrapper
+    .wrapper-inner
+      %td= link_to image_tag(item.title.image.thumb.url), one_title_path(item.title.publisher.id, item.title.id), class: "product-detail-list-item-image"
+  .product-detail-list-item-details
+    = link_to item.title.title, one_title_path(item.title.publisher, item.title), class: "sub-sub-heading"
+    %div
+      %p.product-detail-price= item.title.price
+      %p.club-price-text
+        %span.club-price
+  %dl.product-detail-list-item-details-list
+    %dt Pris
+    %dd= pretty_amount_helper(item.title.price)
+    %dt
+      Forlag:
+    %dd= link_to item.title.publisher.name, one_publisher_path(item.title.publisher.friendly_id)
+    %dt Størrelse:
+    %dd Et eller andet
+    %dt Antal:
+    %dd= item.quantity
+  = link_to "<i class='icon icon-cross'></i>".html_safe, cart_item_path(item.id), method: :delete, class: "cart-symbols delete-title float-right"
+  = link_to "<i class='icon icon-arrow-up'></i>".html_safe, cart_change_title_count_path(title_id: item.title.id, add: "true"), class: "cart-symbols add-title"
+  = link_to "<i class='icon icon-arrow-down'></i>".html_safe, cart_change_title_count_path(title_id: item.title.id, add: "false"), class: "cart-symbols remove-title  #{'v-hidden' if item.quantity < 2 }"
