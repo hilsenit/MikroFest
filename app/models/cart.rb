@@ -19,7 +19,7 @@ class Cart < ApplicationRecord
   end
 
   def get_full_price
-    # Skal det være en Expeption.new? Undersøg
+    # Skal det være en Expeption.new? Undersøg - bliver den her overhovedet vist?
     raise "Der er ingen titler i kurven" if self.cart_items.empty?
     self.full_price = self.cart_items.sum {|ci| ci.quantity * ci.title.price }
   end

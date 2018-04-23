@@ -1,10 +1,7 @@
 -# = render 'shared/card_and_charge_form', title: @title if user_signed_in? # Old solution
-= javascript_include_tag "https://js.stripe.com/v2/"
-:javascript
-  Stripe.setPublishableKey('#{Rails.configuration.stripe[:publishable_key]}');
 
--# - if user_signed_in? && current_user.credit_cards.reject{ |card| card.new_record? }.any? # Er der nogle credit_cards, som er blevet gemt?
--#   = render 'shared/charge_form', title: @title
+-#- if user_signed_in? && current_user.credit_cards.reject{ |card| card.new_record? }.any? # Er der nogle credit_cards, som er blevet gemt?
+-#  = render 'shared/charge_form', title: @title
 
 
 %h2.text-center Checkout
@@ -29,21 +26,19 @@
 
 .columns 
   = form_for :credit_card, url: charges_path() do |f|
-    = f.label :number, "Card Number", required: true
-    .control-group
-      .controls
+    .form-group
+      = f.label :number, "Card Number", required: true
       = f.text_field :number, class: "input-block-level", "data-stripe" => "number"
 
-    = f.label :verification, "Card Verification", required: true
-    .control-group
-      .controls
+    .form-group
+      = f.label :verification, "Card Verification", required: true
       = f.text_field :cvc, class: "input-block-level", "data-stripe" => "cvc"
 
-    = f.label  :exp_month, "Card Expires", required: true
-    = f.select :exp_month, options_for_select(Date::MONTHNAMES.compact.each_with_index.map { |name,i| ["#{i+1} - #{name}", i+1] }), include_blank: false, "data-stripe" => "exp-month", class: "span2"
-    = f.select :exp_year, options_for_select((Date.today.year..(Date.today.year+10)).to_a), include_blank: false, "data-stripe" => "exp-year", class: "span1"
+    .form-group
+      = f.label  :exp_month, "Card Expires", required: true
+      = f.select :exp_month, options_for_select(Date::MONTHNAMES.compact.each_with_index.map { |name,i| ["#{i+1} - #{name}", i+1] }), include_blank: false, "data-stripe" => "exp-month", class: "span2"
+      = f.select :exp_year, options_for_select((Date.today.year..(Date.today.year+10)).to_a), include_blank: false, "data-stripe" => "exp-year", class: "span1"
 
     .actions
-      = f.submit "Registration Payment", class: "btn", style: "color: white;background: rgb(242, 118, 73);" 
+      = f.submit "Betal", class: "btn btn-primary"
 
-= link_to "Betal", charges_path(), method: :post, class: "btn btn-primary"

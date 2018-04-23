@@ -7,7 +7,6 @@ class ChargesController < ApplicationController
     is_cart_created? # generates @cart
 
     begin
-      byebug
       stripe_card_id = params[:credit_card].present? ?
         CreditCardService.new(current_user.id, card_params).create_credit_card :
         charge_params[:card_id]
@@ -24,7 +23,7 @@ class ChargesController < ApplicationController
       end
 
       flash[:notice] = "You did it!"
-      # Delete cart
+      @cart.destroy #Remove cart and cart items
       redirect_to user_path(current_user, profile: "purchases")
 
     rescue Stripe::CardError => e

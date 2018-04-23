@@ -30,7 +30,7 @@
     %p.empty-title.h5 Du har ikke sat noget op på din reol endnu
     %p.empty-subtitle Mangler du inspiration?
     .empty-action
-      = link_to "Se alle bøger", all_titles_path(), class: "btn btn-primary"
+      = link_to "Se alle titler", all_titles_path(), class: "btn btn-primary"
 
 - if @cart_items.any? 
   %h3.text-center Samlet pris: #{pretty_amount_helper(@cart.get_full_price)}
