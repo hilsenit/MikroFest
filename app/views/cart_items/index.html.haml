@@ -2,39 +2,15 @@
   %h2.text-center Din kurv
   %ul.product-detail-list
     = render partial: 'cart_items/item', collection: @cart_items
-
--# %table.w-10
--#   %thead
--#     %tr
--#       %td
--#       %td Stk.
--#       %td Titel
--#       %td Forlag
--#       %td Pris
--#       %td 
--#   %tbody 
--#     - @cart_items.each do |item|
--#       %tr
--#         %td= image_tag item.title.image.thumb.url
--#         %td.title-count 
--#           = link_to "+", cart_change_title_count_path(title_id: item.title.id, add: "true"), class: "d-block  add-title"
--#           .quantity= item.quantity
--#           = link_to "-", cart_change_title_count_path(title_id: item.title.id, add: "false"), class: "d-block remove-title  #{'v-hidden' if item.quantity < 2 }"
-
--#         %td= link_to item.title.title, one_title_path(item.title.publisher.id, item.title.id)
--#         %td= link_to item.title.publisher.name, one_publisher_path(item.title.publisher.id)
--#         %td= pretty_amount_helper(item.quantity * item.title.price)
--#         %td= link_to "<i class='icon icon-cross'></i>".html_safe, cart_item_path(item.id), method: :delete, class: "delete-cart-item-btn"
--# - else
--# .empty
--#   .empty-icon
--#     %i.icon.icon-download
--#   %p.empty-title.h5 Du har ikke sat noget op på din reol endnu
--#   %p.empty-subtitle Mangler du inspiration?
--#   .empty-action
--#     = link_to "Se alle titler", all_titles_path(), class: "btn btn-primary"
-
-- if @cart_items.any? 
   %h6.text-right Samlet pris: #{pretty_amount_helper(@cart.get_full_price)}
+  = link_to "Gå til Checkout &#8594;".html_safe, checkout_path(), class: "btn btn-primary go-to-checkout-btn float-right" if @cart_items.any?
 
-= link_to "Gå til Checkout &#8594;".html_safe, checkout_path(), class: "btn btn-primary go-to-checkout-btn float-right" if @cart_items.any?
+- else
+  .empty
+    .empty-icon
+      %i.icon.icon-download
+    %p.empty-title.h5 Du har ikke lagt noget i din kurv endnu
+    %p.empty-subtitle Mangler du inspiration?
+    .empty-action
+      = link_to "Se alle titler", all_titles_path(), class: "btn btn-primary"
+

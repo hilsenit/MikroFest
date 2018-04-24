@@ -1,6 +1,9 @@
 @import './colors';
 @import './mixins';
 
+.v-middle {
+  vertical-align: middle;
+}
 .c-pointer {
   cursor: pointer;
 }

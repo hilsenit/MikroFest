@@ -27,15 +27,15 @@
 .columns 
   = form_for :credit_card, url: charges_path() do |f|
     .form-group
-      = f.label :number, "Card Number", required: true
+      = f.label :number, "Kortnummer", required: true
       = f.text_field :number, class: "input-block-level", "data-stripe" => "number"
 
     .form-group
-      = f.label :verification, "Card Verification", required: true
+      = f.label :verification, "CVC", required: true
       = f.text_field :cvc, class: "input-block-level", "data-stripe" => "cvc"
 
     .form-group
-      = f.label  :exp_month, "Card Expires", required: true
+      = f.label  :exp_month, "", required: true
       = f.select :exp_month, options_for_select(Date::MONTHNAMES.compact.each_with_index.map { |name,i| ["#{i+1} - #{name}", i+1] }), include_blank: false, "data-stripe" => "exp-month", class: "span2"
       = f.select :exp_year, options_for_select((Date.today.year..(Date.today.year+10)).to_a), include_blank: false, "data-stripe" => "exp-year", class: "span1"
 

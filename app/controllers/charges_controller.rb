@@ -22,7 +22,8 @@ class ChargesController < ApplicationController
         current_user.credit_cards.create_with(card_params).find_or_create_by(stripe_id: stripe_card_id)
       end
 
-      flash[:notice] = "You did it!"
+      title_count = @cart.cart_items.sum(&:quantity)
+      flash[:notice] = "Tak for dit køb. Vi sender en mail, så snart #{title_count > 1 ? "titlerne" : "titlen"} bliver sendt."
       @cart.destroy #Remove cart and cart items
       redirect_to user_path(current_user, profile: "purchases")
 
